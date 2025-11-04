@@ -1,0 +1,13 @@
+{
+  "name": "retro-console-nuxt",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "nuxi preview"
+  },
+  "dependencies": {
+    "nuxt": "^3.8.0"
+  }
+}

@@ -1,0 +1,243 @@
+{
+    "projects": [
+        {
+            "title": "Branding Project",
+            "description": "Een uitgebreid branding project voor de EDM artiest Boris Schmidt, inclusief moodboard, stylescape, brand guide en contentstrategie.",
+            "image": "images/prophecy-dungeon.jpg",
+            "sections": [
+                {
+                    "title": "Project Overzicht",
+                    "content": "Dit project draaide om het ontwikkelen van de branding voor de EDM artiest Boris Schmidt. In vier weken tijd hebben we een complete brand identity ontwikkeld, bestaande uit een moodboard, stylescape, brand guide en contentstrategie. Het doel was om de artiest te helpen bij het promoten van zijn muziek en een jonger publiek aan te spreken voor een ouder muziekgenre.",
+                    "type": "text"
+                },
+                {
+                    "title": "Belangrijke Deliverables",
+                    "content": [
+                        "Moodboard ontwikkeling",
+                        "Stylescape ontwerp",
+                        "Logo iteraties",
+                        "Brand guide documentatie",
+                        "Content strategie"
+                    ],
+                    "type": "list"
+                },
+                {
+                    "title": "Reflectie",
+                    "content": "Bij het terugkijken op dit project zijn er enkele punten van verbetering. Er had meer aandacht besteed kunnen worden aan gebruikerstests en het achterhalen van de wensen van de klant. De contentstrategie had ook grondiger uitgewerkt kunnen worden, aangezien deze voornamelijk conceptueel was en sterke onderbouwing miste. Over het algemeen lijkt het erop dat de gemakkelijke weg is gekozen in dit project, wat heeft geleid tot een gemiddeld resultaat. Hoewel er veel moeite is gestoken in het creëren van een logo, ontbrak het aan samenhang in de algehele merkhandleiding. Dit kwam door verschillende meningen binnen het team en de tijdsdruk waarmee we te maken hadden.",
+                    "type": "text"
+                },
+                {
+                    "title": "Project Galerij",
+                    "images": [
+                        {
+                            "src": "images/moodboard boris.png",
+                            "alt": "Moodboard",
+                            "caption": "Moodboard voor Boris Schmidt branding"
+                        },
+                        {
+                            "src": "images/stylescape boris.png",
+                            "alt": "Stylescape",
+                            "caption": "Stylescape voorstel"
+                        },
+                        {
+                            "src": "images/logo iteraties boris.png",
+                            "alt": "Logo Iteraties",
+                            "caption": "Logo ontwerp iteraties"
+                        },
+                        {
+                            "src": "images/content strategie boris.png",
+                            "alt": "Content Strategie",
+                            "caption": "Overzicht van de content strategie"
+                        },
+                        {
+                            "src": "images/brand guide boris.png",
+                            "alt": "Brand Guide",
+                            "caption": "Uittreksels uit de Brand Guide"
+                        }
+                    ],
+                    "type": "gallery"
+                },
+                {
+                    "title": "Documentatie",
+                    "content": "Voor een uitgebreide documentatie van dit project, inclusief alle iteraties, het volledige proces en de eindresultaten, bekijk de project documentatie PDF. Je kunt ook de Figma designs bekijken voor een interactieve ervaring van de brand guide.",
+                    "type": "documentation",
+                    "pdf": "project 1 -  boris schmidt.pdf",
+                    "figma": "https://www.figma.com/design/laPAySW2X4aS7i6eRHvS7i/Brand-guide-project-groep-3?node-id=0-1&t=wQdArvHYcz821SlA-1"
+                }
+            ]
+        },
+        {
+            "title": "Create that UX",
+            "description": "Een digitaal prototype dat de Experience Square - een fysieke installatie voor het ervaren van visuele en auditieve beperkingen - vertaalt naar een digitale omgeving.",
+            "image": "images/prophecy-banner-learning-outcome-1.png",
+            "sections": [
+                {
+                    "title": "Project Overzicht",
+                    "content": "Gedurende vier weken werkten we aan een opdracht waarbij we de Experience Square – een fysieke installatie die laat ervaren hoe het is om visuele en auditieve beperkingen te hebben tijdens het gebruik van websites – digitaal moesten vertalen. In het beginfase onderzochten we verschillende soorten beperkingen, waarna we ons vooral richtten op visuele beperkingen. We verdiepten ons in de impact hiervan op webgebruik. Met de opgedane kennis ontwikkelden we een digitaal prototype. Dit project werd uitgevoerd samen met vier medestudenten.",
+                    "type": "text"
+                },
+                {
+                    "title": "Belangrijke Deliverables",
+                    "content": [
+                        "Projectplan en taakverdeling",
+                        "Analyse van visuele beperkingen",
+                        "Onderzoeksvoorstel met centrale vragen",
+                        "Slechtzichtheidssimulatie ontwerp",
+                        "Digitaal prototype ontwikkeling"
+                    ],
+                    "type": "list"
+                },
+                {
+                    "title": "Reflectie",
+                    "content": "Ik ben niet helemaal tevreden over mijn eigen inzet tijdens dit project. Ik realiseer me dat ik meer had kunnen bijdragen, vooral omdat er nog ruimte was om mijn rol verder uit te breiden. In de toekomst wil ik actiever deelnemen en meer verantwoordelijkheid nemen om zo een grotere bijdrage te leveren aan het team en het projectresultaat.",
+                    "type": "text"
+                },
+                {
+                    "title": "Project Galerij",
+                    "images": [
+                        {
+                            "src": "images/presentatie cardan UX.jpg",
+                            "alt": "presentatie van het figma prototype",
+                            "caption": "presentatie van het fimga prototype"
+                        }
+                    ],
+                    "type": "gallery"
+                },
+                {
+                    "title": "Documentatie",
+                    "content": "Voor een uitgebreide documentatie van dit project, inclusief het onderzoek naar visuele beperkingen en het onderzoeksvoorstel, bekijk de project documentatie.",
+                    "type": "documentation",
+                    "pdf": "PROJECT 2- FIX THAT UX.pdf",
+                    "figma": "https://www.figma.com/proto/zvBkWrOHRqpQH0wJWZYjFo/Cardan?node-id=151-4&t=32b7gHTxkD2Cprfg-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=151%3A4&show-proto-sidebar=1"
+                }
+            ]
+        },
+        {
+            "title": "Development",
+            "description": "De ontwikkeling van een werkende website gebaseerd op het UX prototype, met focus op toegankelijkheid en gebruikerservaring.",
+            "image": "images/madison-parker-dungeon-prophecy-7.jpg",
+            "sections": [
+                {
+                    "title": "Project Overzicht",
+                    "content": "Tijdens dit vier weken durende project kregen we de opdracht om van het prototype dat we in het vorige project (Fix UX) hadden gemaakt, een daadwerkelijke werkende website te bouwen. Hierbij maakten we gebruik van HTML, CSS en JavaScript. Daarnaast was het belangrijk om met GIT te werken voor versiebeheer. Dit project heb ik samen met één teamgenoot uitgevoerd.",
+                    "type": "text"
+                },
+                {
+                    "title": "Belangrijke Deliverables",
+                    "content": [
+                        "Website ontwikkeling met HTML, CSS en JavaScript",
+                        "Implementatie van auditieve beperkingen",
+                        "Dyslexie & kleurencontrast functionaliteit",
+                        "Header en footer componenten",
+                        "Git versiebeheer en branch management"
+                    ],
+                    "type": "list"
+                },
+                {
+                    "title": "Reflectie",
+                    "content": "Als ik terugkijk op dit project, ben ik over het algemeen tevreden met het resultaat. De communicatie verliep redelijk, maar er waren zeker punten waarop we konden verbeteren. Mijn focus lag vooral op het programmeren, waardoor het project minder stressvol was dan eerdere projecten. Ook het gebruik van Git kende zijn ups en downs. Door een fout bij het pullen en pushen verloren we tijdelijk wat CSS, maar dankzij regelmatige commits konden we dit snel herstellen. Al met al ben ik tevreden met hoe het project is verlopen. Ik heb nieuwe dingen geprobeerd, vooral met JavaScript en CSS, en waardevolle lessen geleerd die ik kan meenemen naar volgende projecten.",
+                    "type": "text"
+                },
+                {
+                    "title": "Project Galerij",
+                    "images": [
+                        {
+                            "src": "images/auditieve beperking.png",
+                            "alt": "Website Interface",
+                            "caption": "De ontwikkelde auditieve beperkingen interface"
+                        },
+                        {
+                            "src": "images/auditieve beperkingen feedback pagina.png",
+                            "alt": "Toegankelijkheidsfuncties",
+                            "caption": "Implementatie van de feedback pagina"
+                        },
+                        {
+                            "src": "images/dyslexie simulatie.png",
+                            "alt": "Website Interface",
+                            "caption": "De ontwikkelde dyslexie simulatie interface"
+                        },
+                        {
+                            "src": "images/slecht kleurcontrast simulatie.png",
+                            "alt": "Toegankelijkheidsfuncties",
+                            "caption": "Implementatie van de kleurcontrast pagina"
+                        }
+                    ],
+                    "type": "gallery"
+                },
+                {
+                    "title": "Documentatie",
+                    "content": "Voor een uitgebreide documentatie van dit project, inclusief het Figma prototype, de live website en de Git repository, bekijk de onderstaande links.",
+                    "type": "documentation",
+                    "pdf": "PROJECT 3 – DEVELOPMENT.pdf",
+                    "figma": "https://www.figma.com/proto/HOaKHvzGYPiUdqkCOMPzHC/Project-UX?page-id=35%3A3&node-id=46-41&p=f&viewport=569%2C160%2C0.03&t=rfOx4UK5jTw4aNiH-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=46%3A41",
+                    "website": "https://i513900.hera.fontysict.net/cardan-dev-opdracht/",
+                    "git": "https://git.fhict.nl/I554632/cardan-dev-opdracht.git"
+                }
+            ]
+        },
+        {
+            "title": "Personal Project X",
+            "description": "Een moderne projectmanagement applicatie ontwikkeld met Nuxt.js, geïnspireerd op Trello maar met een eigen unieke stijl en functionaliteiten.",
+            "image": "images/madison-parker-dungeon-prophecy-6.jpg",
+            "sections": [
+                {
+                    "title": "Project Overzicht",
+                    "content": "Dit individuele project was een verkenning van het Nuxt.js framework, waarbij ik een Trello-achtige projectmanagementtool ontwikkelde. De applicatie, genaamd Mello, combineert functionaliteit met een unieke, 'mellow' stijl. Het project gaf me de kans om moderne webtechnologieën te leren terwijl ik iets praktisch bruikbaars bouwde. Ik koos bewust voor een ontspannen interface met een blauw kleurenpalet en subtiele humor, als tegenwicht voor de vaak drukke uitstraling van productiviteitstools.",
+                    "type": "text"
+                },
+                {
+                    "title": "Belangrijke Deliverables",
+                    "content": [
+                        "Gebruikersbeheer via profielen",
+                        "Bordenbeheer met lijsten en kaarten",
+                        "Drag-and-drop functionaliteit",
+                        "Deadline-picker voor taken",
+                        "Glassmorphism interface design",
+                        "LocalStorage data persistentie"
+                    ],
+                    "type": "list"
+                },
+                {
+                    "title": "Reflectie",
+                    "content": "Dit project heeft mijn inzicht in moderne webontwikkeling aanzienlijk vergroot. Door te werken met componenten, state management en CSS-frameworks voel ik me nu zelfverzekerder in het opzetten van webapplicaties. AI-tools zoals ChatGPT en Claude waren onmisbaar als digitale hulplijn, niet alleen voor het oplossen van programmeerproblemen maar ook voor het verdiepen van mijn begrip van de technologieën. Hoewel ik ondersteuning gebruikte, was het mijn doel om alles te begrijpen en zelfstandig toe te passen. Deze aanpak zorgde ervoor dat ik zowel technisch als methodisch groeide tijdens dit project.",
+                    "type": "text"
+                },
+                {
+                    "title": "Project Galerij",
+                    "images": [
+                        {
+                            "src": "images/Meerdere trello boards.png",
+                            "alt": "Multiple Boards",
+                            "caption": "Overzicht van meerdere project boards"
+                        },
+                        {
+                            "src": "images/mijn profiel pagina.png",
+                            "alt": "Profile Page",
+                            "caption": "Gebruikersprofiel pagina met persoonlijke instellingen"
+                        },
+                        {
+                            "src": "images/een aangemaakt trello board.png",
+                            "alt": "Created Board",
+                            "caption": "Voorbeeld van een nieuw aangemaakt project board"
+                        },
+                        {
+                            "src": "images/Maak profiel aan.png",
+                            "alt": "Create Profile",
+                            "caption": "Interface voor het aanmaken van een nieuw profiel"
+                        }
+                    ],
+                    "type": "gallery"
+                },
+                {
+                    "title": "Documentatie",
+                    "content": "Voor een uitgebreide documentatie van dit project, inclusief het projectplan, Figma schetsen en technische specificaties, bekijk de onderstaande links.",
+                    "type": "documentation",
+                    "pdf": "Project X - Mello.pdf",
+                    "figma": "https://www.figma.com/design/3eSLDfKFmiEwUjDaYEy0ZG/Untitled?node-id=0-1&t=FCLoKSo8Ubnq5nr5-1",
+                    "git": "https://git.fhict.nl/I554632/mello-project-x.git",
+                    "website": "https://i554632.hera.fontysict.net/"
+                }
+            ]
+        }
+    ]
+}
