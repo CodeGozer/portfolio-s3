@@ -16,6 +16,8 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 export const CRTLayout: typeof import("../components/CRTLayout.vue")['default']
 export const ConditionPanel: typeof import("../components/ConditionPanel.vue")['default']
+export const PipBoyNav: typeof import("../components/PipBoyNav.vue")['default']
+export const PipBoyStatsBar: typeof import("../components/PipBoyStatsBar.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -41,6 +43,8 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const LazyCRTLayout: LazyComponent<typeof import("../components/CRTLayout.vue")['default']>
 export const LazyConditionPanel: LazyComponent<typeof import("../components/ConditionPanel.vue")['default']>
+export const LazyPipBoyNav: LazyComponent<typeof import("../components/PipBoyNav.vue")['default']>
+export const LazyPipBoyStatsBar: LazyComponent<typeof import("../components/PipBoyStatsBar.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

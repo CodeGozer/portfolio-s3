@@ -1,16 +1,8 @@
 <template>
   <CRTLayout>
     <section class="quests-layout">
-      <nav class="bottom-nav visible">
-        <NuxtLink to="/" class="nav-link">CND</NuxtLink>
-        <div class="nav-underline"></div>
-        <NuxtLink to="/skills" class="nav-link">SKILLS</NuxtLink>
-        <div class="nav-underline"></div>
-        <NuxtLink to="/quests" class="nav-link active">QUESTS</NuxtLink>
-        <div class="nav-underline"></div>
-        <NuxtLink to="/profile" class="nav-link">STATS</NuxtLink>
-      </nav>
-      <aside class="quest-list">
+      <div class="content-row">
+        <aside class="quest-list">
         <div
           v-for="(quest, i) in quests"
           :key="i"
@@ -51,125 +43,18 @@
           </template>
         </div>
       </main>
+      </div>
+
+      <PipBoyNav />
     </section>
   </CRTLayout>
 </template>
 
 <script setup>
 import CRTLayout from '~/components/CRTLayout.vue'
+import PipBoyNav from '~/components/PipBoyNav.vue'
 import { ref } from 'vue'
-import { NuxtLink } from '#components'
 import questsData from '~/../projects.json'
 const quests = questsData.projects
 const selected = ref(0)
 </script>
-
-<style scoped>
-.quests-layout {
-  display: flex;
-  height: calc(100vh - 60px);
-}
-
-.bottom-nav {
-  display: flex;
-  background: #111;
-  color: #eee;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  justify-content: center;
-}
-
-.nav-link {
-  color: #ff9800;
-  text-decoration: none;
-  padding: 10px;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #e68900;
-}
-
-.nav-link.active {
-  font-weight: bold;
-}
-
-.nav-underline {
-  height: 2px;
-  background: #ff9800;
-  transition: width 0.3s;
-}
-
-.quests-layout {
-  padding-bottom: 60px; /* Adjusted for bottom nav */
-}
-
-.quest-list {
-  background: #111;
-  color: #eee;
-  padding: 10px;
-  width: 250px;
-  overflow-y: auto;
-}
-
-.quest-item {
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.quest-item:hover {
-  background: #222;
-}
-
-.quest-item.active {
-  background: #007bff;
-  color: #fff;
-}
-
-.quest-details {
-  flex: 1;
-  padding: 20px;
-  background: #fff;
-  overflow-y: auto;
-}
-
-.quest-desc {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-.quest-section {
-  margin: 20px 0;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-figure {
-  margin: 0 10px 10px 0;
-  flex: 1 1 calc(33.333% - 10px);
-}
-
-figcaption {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-}
-
-.docs a {
-  display: block;
-  margin: 5px 0;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.docs a:hover {
-  text-decoration: underline;
-}
-</style>

@@ -4,6 +4,7 @@
     <div class="pipboy-bezel">
       <div class="crt-screen">
         <div class="scanlines"></div>
+        <PipBoyStatsBar />
         <slot />
       </div>
     </div>
@@ -12,3 +13,4 @@
 
 <script setup>
 </script>
+import PipBoyStatsBar from '~/components/PipBoyStatsBar.vue'
