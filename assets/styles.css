@@ -1,0 +1,444 @@
+/* Fighter Jet x Pip-Boy Hybrid Palette */
+:root{
+  --bg: #0a0f0a; /* military black-green */
+  --crt: #33ff66; /* Pip-Boy green with HUD edge */
+  --crt-glow: rgba(51, 255, 102, 0.75);
+  --crt-dim: #66cc88; /* dimmed green for secondary text */
+  --panel: #101510; /* dark military panel */
+  --muted: #88bb99; /* muted green */
+  --bezel-light: #2a2f2a; /* gunmetal gray */
+  --bezel-dark: #151a15; /* dark military gray */
+  --hazard: #ffcc00; /* hazard stripe yellow */
+  --hazard-stripe: repeating-linear-gradient(45deg, #000 0px, #000 10px, var(--hazard) 10px, var(--hazard) 20px);
+  --rivet: radial-gradient(circle, #555 0%, #222 70%, #000 100%);
+  --status-ok: #00ff88;
+  --status-warn: #ffaa00;
+  --status-crit: #ff3344;
+  --hud-line: rgba(51, 255, 102, 0.6);
+}
+
+*{box-sizing:border-box;font-family: 'VT323', 'Courier New', Consolas, monospace;color:var(--crt)}
+html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
+
+/* Fullscreen Cockpit Terminal Shell */
+.pipboy-shell{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(ellipse at center, rgba(0,20,10,0.4), rgba(0,0,0,0.95) 70%)}
+
+/* Fighter Jet Bezel with Rivets and Hazard Stripes */
+.pipboy-bezel{
+  width:100%;height:100%;max-width:1480px;max-height:960px;
+  border-radius:6px;padding:32px;
+  background:linear-gradient(180deg,var(--bezel-light),var(--bezel-dark));
+  box-shadow:
+    0 30px 120px rgba(0,0,0,0.95), 
+    inset 0 0 140px rgba(0,0,0,0.75),
+    inset 0 2px 4px rgba(255,255,255,0.05);
+  border:12px solid #1a1f1a;
+  display:flex;align-items:center;justify-content:center;position:relative;
+  overflow:hidden;
+}
+
+/* Hazard stripe accent on top edge */
+.pipboy-bezel::before{
+  content:'';position:absolute;top:0;left:12%;right:12%;height:8px;
+  background:var(--hazard-stripe);z-index:5;
+}
+
+/* Stenciled label overlay */
+.pipboy-bezel::after{
+  content:'PRIMARY VISUAL FEED • AUTHORIZED USER ONLY';
+  position:absolute;bottom:16px;right:32px;
+  font-size:0.65em;letter-spacing:3px;font-weight:700;
+  color:rgba(51, 255, 102, 0.4);text-transform:uppercase;
+  pointer-events:none;z-index:10;
+  text-shadow:0 0 8px var(--crt-glow);
+}
+
+/* Rivets scattered on bezel */
+.rivet{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--rivet);box-shadow:inset 0 -2px 2px rgba(0,0,0,0.6), 0 1px 2px rgba(255,255,255,0.2);z-index:6}
+.rivet:nth-of-type(1){top:20px;left:20px}
+.rivet:nth-of-type(2){top:20px;right:20px}
+.rivet:nth-of-type(3){bottom:20px;left:20px}
+.rivet:nth-of-type(4){bottom:20px;right:20px}
+.rivet:nth-of-type(5){top:50%;left:20px;transform:translateY(-50%)}
+.rivet:nth-of-type(6){top:50%;right:20px;transform:translateY(-50%)}
+
+.crt-screen{
+  width:100%;height:100%;
+  background:linear-gradient(180deg, rgba(0,10,5,0.15), rgba(0,0,0,0.3));
+  padding:28px;border-radius:4px;
+  box-shadow:
+    inset 0 0 180px rgba(51, 255, 102, 0.04),
+    inset 0 0 60px rgba(0,0,0,0.6);
+  position:relative;overflow:hidden;
+  border:4px solid rgba(51, 255, 102, 0.25);
+}
+
+/* Scanline overlay */
+.crt-screen::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(to bottom,rgba(51, 255, 102, 0.05) 0px,rgba(51, 255, 102, 0.05) 1px,transparent 2px,transparent 6px);
+  opacity:0.2;z-index:1;
+}
+
+/* Vignette */
+.crt-screen::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.45) 100%);
+  opacity:0.3;z-index:2;
+}
+
+/* Subtle CRT flicker */
+@keyframes crt-flicker {
+  0%, 100% { filter: brightness(1) contrast(1); }
+  50% { filter: brightness(0.97) contrast(1.03); }
+}
+.crt-screen { animation: crt-flicker 11s infinite; }
+
+/* Scanlines overlay element (extra) */
+.scanlines { 
+  position:absolute; inset:0; z-index:3; pointer-events:none; 
+  background: repeating-linear-gradient(to bottom, rgba(51, 255, 102, 0.04) 0px, rgba(51, 255, 102, 0.04) 1px, transparent 3px, transparent 6px); 
+  mix-blend-mode: screen; 
+}
+
+/* Global HUD glow */
+.nav-link, .menu-item, h1, h2, .stat-box, .quest-item, .quest-details, .hud-callsign, .status-label { 
+  text-shadow: 0 0 8px var(--crt-glow), 0 0 16px rgba(51, 255, 102, 0.3); 
+}
+
+/* HUD pulse for interactive elements */
+@keyframes hud-pulse {
+  0%, 100% { text-shadow: 0 0 8px var(--crt-glow), 0 0 16px rgba(51, 255, 102, 0.3); }
+  50% { text-shadow: 0 0 14px var(--crt-glow), 0 0 24px rgba(51, 255, 102, 0.5); }
+}
+
+/* Scanline shimmer on hover */
+@keyframes scanline-shimmer {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+/* Layout inside screen */
+.home-grid{display:flex;flex-direction:column;align-items:stretch;justify-content:stretch;height:100%;width:100%}
+.panel{
+  background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+  padding:16px;border-radius:2px;
+  border:3px solid var(--hud-line);
+  height:100%;overflow:auto;
+  position:relative;
+}
+.condition-panel{display:flex;gap:12px;height:100%;align-items:center}
+.condition-layout{flex:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;width:100%;padding:24px;position:relative}
+.condition-left{flex:0 0 320px;display:flex;align-items:center;justify-content:center}
+.condition-logo{
+  width:280px;height:auto;border-radius:2px;
+  border:2px solid var(--hud-line);
+  background:linear-gradient(180deg, rgba(51, 255, 102, 0.03), rgba(0,0,0,0.1));
+  padding:12px;
+  box-shadow:0 0 24px rgba(51, 255, 102, 0.2);
+}
+.condition-right{flex:1}
+.limb-list{list-style:none;padding:0;margin:0}
+.limb-list li{padding:8px 0;color:var(--crt)}
+.limb-list li.healthy{color:var(--status-ok)}
+.limb-list li.injured{color:var(--status-warn)}
+.limb-list li.crippled{color:var(--status-crit)}
+
+.page-nav{display:flex;flex-direction:column;gap:8px}
+
+.profile-grid{display:flex;gap:12px;align-items:center}
+.profile-logo{width:84px;height:auto}
+
+h1,h2{
+  margin:0 0 18px 0;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--crt);
+  border-bottom:2px solid var(--hud-line);
+  padding-bottom:8px;
+}
+
+/* Condition page specific styles */
+.condition-layout{display:flex;flex-direction:column;height:100%;padding:18px;position:relative}
+
+/* HUD Header with Avionics-Style Callsign */
+.hud-header{padding:12px 24px;position:relative;z-index:5}
+.hud-brackets{display:flex;align-items:center;justify-content:center;gap:18px;position:relative}
+.bracket-left, .bracket-right{width:120px;height:3px;background:linear-gradient(90deg, var(--hud-line) 0%, transparent 100%);position:relative}
+.bracket-right{background:linear-gradient(90deg, transparent 0%, var(--hud-line) 100%)}
+.bracket-left::before, .bracket-right::before{content:'';position:absolute;top:-6px;width:3px;height:16px;background:var(--hud-line)}
+.bracket-left::before{left:0}
+.bracket-right::before{right:0}
+
+.hud-callsign{text-align:center;padding:0 32px}
+.callsign-label{font-size:0.7em;letter-spacing:4px;font-weight:700;color:var(--crt-dim);margin-bottom:2px}
+.callsign-name{font-size:1.6em;letter-spacing:6px;font-weight:700;color:var(--crt);line-height:1.2}
+.callsign-tag{font-size:0.85em;letter-spacing:3px;font-weight:600;color:var(--crt-dim);margin-top:2px}
+
+.hud-divider{height:2px;background:linear-gradient(90deg, transparent 0%, var(--hud-line) 20%, var(--hud-line) 80%, transparent 100%);margin-top:12px}
+
+.content-row{display:flex;flex:1;align-items:center;gap:24px;padding:24px}
+.left-menu{
+  width:140px;display:flex;flex-direction:column;gap:20px;padding-left:6px;
+  border-right:2px solid var(--hud-line);padding-right:24px;
+}
+.menu-item{
+  font-weight:700;padding:12px 16px;
+  border-left:4px solid transparent;
+  background:rgba(0,0,0,0.2);
+  letter-spacing:3px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.3s ease;
+  font-size:1em;
+}
+.menu-item:hover{
+  border-left-color:var(--crt);
+  background:rgba(51, 255, 102, 0.06);
+}
+.menu-item.active{
+  border:3px solid var(--crt);
+  padding:10px 14px;
+  border-radius:2px;
+  background:rgba(51, 255, 102, 0.12);
+  box-shadow:0 0 20px var(--crt-glow);
+}
+
+.center-stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.logo-wrap{display:flex;align-items:center;justify-content:center}
+.center-logo{
+  width:520px;max-width:72%;height:auto;
+  filter:drop-shadow(0 8px 24px rgba(51, 255, 102, 0.4));
+  border:3px solid var(--hud-line);
+  padding:16px;
+  background:rgba(0,0,0,0.3);
+}
+.center-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  width:60%;max-width:720px;margin-top:12px;
+  padding:12px 24px;
+  border-top:2px solid var(--hud-line);
+  border-bottom:2px solid var(--hud-line);
+}
+.meta-name,.meta-level{
+  font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;font-size:1.1em;
+}
+
+.right-spacer{width:120px}
+
+/* Cockpit-Style Navigation Wrapper */
+.cockpit-nav-wrapper{position:relative;width:100%;height:100%}
+
+/* Vertical Side Nav Panels */
+.cockpit-nav-left, .cockpit-nav-right{
+  position:absolute;top:120px;display:flex;flex-direction:column;gap:24px;z-index:10;
+  padding:24px 16px;
+  background:linear-gradient(90deg, rgba(0,0,0,0.4), transparent);
+  border:2px solid transparent;
+}
+.cockpit-nav-left{left:0;border-right-color:var(--hud-line);padding-right:24px}
+.cockpit-nav-right{right:0;border-left-color:var(--hud-line);padding-left:24px;align-items:flex-end}
+
+.cockpit-nav-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 18px;
+  text-decoration:none;color:var(--crt);
+  font-size:1.1em;letter-spacing:3px;font-weight:600;
+  border:2px solid transparent;
+  background:rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+  position:relative;
+}
+.cockpit-nav-item:hover{
+  border-color:var(--crt);
+  background:rgba(51, 255, 102, 0.08);
+  animation:hud-pulse 2s infinite;
+}
+.cockpit-nav-item.router-link-active{
+  border-color:var(--crt);
+  background:rgba(51, 255, 102, 0.12);
+  box-shadow:0 0 20px var(--crt-glow);
+}
+.cockpit-nav-item .nav-icon{font-size:0.6em;color:var(--crt)}
+.cockpit-nav-item .nav-label{text-transform:uppercase}
+
+/* Bottom Status Bar (Aircraft Advisory Panel Style) */
+.status-bar{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-around;
+  padding:16px 32px;
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,0.6));
+  border-top:2px solid var(--hud-line);
+  z-index:10;
+}
+.status-item{display:flex;align-items:center;gap:8px;font-size:0.9em;letter-spacing:2px}
+.status-label{color:var(--crt-dim);font-weight:600;text-transform:uppercase}
+.status-value{color:var(--crt);font-weight:700}
+.status-value.status-ok{color:var(--status-ok)}
+.status-value.status-warn{color:var(--status-warn)}
+.status-value.status-crit{color:var(--status-crit)}
+
+/* Corner brackets (if still used) */
+.corner{width:40px;height:40px;border:4px solid transparent}
+.left-corner{border-left-color:var(--crt);border-bottom-color:var(--crt);border-right-color:transparent;border-top-color:transparent}
+.right-corner{border-right-color:var(--crt);border-bottom-color:var(--crt);border-left-color:transparent;border-top-color:transparent}
+.top-left-corner{border-left-color:var(--crt);border-top-color:var(--crt);border-right-color:transparent;border-bottom-color:transparent}
+.top-right-corner{border-right-color:var(--crt);border-top-color:var(--crt);border-left-color:transparent;border-bottom-color:transparent}
+
+/* About Me section styles */
+.about-wrap{display:flex;align-items:center;gap:40px;justify-content:center;padding:32px 0}
+.about-photo{
+  width:240px;height:240px;object-fit:cover;border-radius:2px;
+  border:3px solid var(--crt);
+  background:rgba(51, 255, 102, 0.08);
+  box-shadow:0 0 32px var(--crt-glow);
+}
+.about-text{max-width:480px;color:var(--crt);line-height:1.8} 
+.about-text h2{
+  margin:0 0 16px 0;font-size:1.8em;letter-spacing:4px;
+  text-transform:uppercase;font-weight:700;
+}
+.about-text p{margin:0;font-size:1.1em;line-height:1.8}/* Skills list styling */
+.skill-list{list-style:none;padding:0;margin:16px 0;display:grid;grid-template-columns:1fr;gap:12px}
+.skill-list li{
+  padding:14px 18px;
+  border-left:4px solid var(--hud-line);
+  background:rgba(0,0,0,0.3);
+  border:2px solid var(--hud-line);
+  letter-spacing:2px;font-weight:600;
+  transition:all 0.3s ease;
+}
+.skill-list li:hover{
+  background:rgba(51, 255, 102, 0.08);
+  box-shadow:0 0 16px var(--crt-glow);
+}
+.skill-list li::before{content:'▸'; margin-right:12px;color:var(--crt)}
+
+/* Projects/Quests Tab - Radar Target Styling */
+.quests-layout{display:flex;flex-direction:column;height:100%;padding:18px;position:relative;background:transparent;}
+.quests-layout .content-row{display:flex;flex:1;align-items:stretch;gap:0;padding:0;}
+
+/* Target List (Radar Contacts) */
+.quest-list{
+  width:340px;
+  background:linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+  border-right:3px solid var(--hud-line);
+  padding:24px 0;
+  display:flex;flex-direction:column;gap:3px;
+  overflow-y:auto;
+  box-shadow:inset -8px 0 16px rgba(0,0,0,0.6);
+}
+
+.quest-item{
+  padding:16px 24px;
+  font-size:1.15em;letter-spacing:3px;font-weight:600;
+  cursor:pointer;
+  border-left:4px solid transparent;
+  background:rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+  position:relative;
+  text-transform:uppercase;
+}
+.quest-item::before{
+  content:'▸';margin-right:12px;color:var(--crt-dim);
+  transition:color 0.3s ease;
+}
+.quest-item:hover{
+  background:rgba(51, 255, 102, 0.06);
+  border-left-color:var(--crt);
+  animation:hud-pulse 2s infinite;
+}
+.quest-item:hover::before{color:var(--crt)}
+.quest-item.active{
+  background:rgba(51, 255, 102, 0.12);
+  border-left:4px solid var(--crt);
+  color:var(--crt);
+  font-weight:700;
+  box-shadow:inset 0 0 20px var(--crt-glow);
+}
+.quest-item.active::before{color:var(--crt)}
+
+/* Target Details Panel */
+.quest-details{
+  flex:1;padding:32px 48px;overflow-y:auto;
+  background:linear-gradient(90deg, rgba(0,0,0,0.2), transparent 20%);
+}
+.quest-desc{margin-bottom:24px;font-size:1.1em;line-height:1.7;color:var(--crt)}
+.quest-section{margin-bottom:32px}
+.quest-section h3{
+  margin:0 0 12px 0;font-size:1.2em;letter-spacing:3px;
+  color:var(--crt);font-weight:700;text-transform:uppercase;
+  border-bottom:2px solid var(--hud-line);padding-bottom:6px;
+}
+.quest-section ul{margin:0 0 12px 0;padding-left:28px;line-height:1.8}
+.quest-section ul li{color:var(--crt)}
+
+/* Gallery as Targeting Display */
+.gallery{display:flex;flex-wrap:wrap;gap:24px;margin-top:16px}
+.gallery figure{
+  width:200px;text-align:center;position:relative;
+  border:2px solid var(--hud-line);
+  background:rgba(0,0,0,0.3);
+  padding:8px;
+  transition:all 0.4s ease;
+}
+.gallery figure:hover{
+  border-color:var(--crt);
+  box-shadow:0 0 24px var(--crt-glow);
+  background:rgba(51, 255, 102, 0.05);
+}
+.gallery figure:hover::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(51, 255, 102, 0.1) 2px,
+    transparent 4px,
+    transparent 8px
+  );
+  animation:scanline-shimmer 2s linear infinite;
+  pointer-events:none;
+}
+.gallery img{
+  width:100%;border:none;
+  background:rgba(0,0,0,0.5);
+  filter:grayscale(0.3) contrast(1.1);
+}
+.gallery figcaption{
+  font-size:0.85em;margin-top:8px;color:var(--crt-dim);
+  letter-spacing:2px;text-transform:uppercase;
+}
+
+/* Documentation Links */
+.docs{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px}
+.docs a{
+  color:var(--crt);text-decoration:none;font-size:1em;
+  padding:8px 16px;border:2px solid var(--hud-line);
+  background:rgba(0,0,0,0.3);letter-spacing:2px;
+  transition:all 0.3s ease;text-transform:uppercase;font-weight:600;
+}
+.docs a:hover{
+  border-color:var(--crt);
+  background:rgba(51, 255, 102, 0.1);
+  box-shadow:0 0 16px var(--crt-glow);
+}
+
+/* Small screens: make full width and stack */
+@media (max-width:900px){
+  .pipboy-bezel{max-width:96vw;max-height:94vh;border-radius:4px;padding:16px}
+  .home-grid{grid-template-columns:1fr;grid-auto-rows:min-content}
+  .condition-left{order:2}
+  .center-logo{width:360px}
+  .center-meta{width:90%}
+  .left-menu{width:100px;border-right:none;padding-right:12px}
+  .right-spacer{display:none}
+  .cockpit-nav-left, .cockpit-nav-right{position:static;padding:12px;background:rgba(0,0,0,0.5);border:none}
+  .cockpit-nav-wrapper{display:flex;flex-direction:column}
+  .status-bar{position:relative;padding:12px 16px}
+}
+
+/* Optional: smooth scrollbars in the Pip-Boy color */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:rgba(0,0,0,0.15)}
+::-webkit-scrollbar-thumb{background:rgba(255,184,77,0.35)}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,184,77,0.55)}
