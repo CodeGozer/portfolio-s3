@@ -1,5 +1,5 @@
 <template>
-  <!-- Fullscreen Cockpit Terminal Shell - Playful Pip-Boy design for home -->
+  <!-- Fullscreen Cockpit Terminal Shell -->
   <div class="pipboy-shell">
     <div class="pipboy-bezel">
       <!-- Rivets -->
@@ -12,11 +12,7 @@
       
       <div class="crt-screen">
         <div class="scanlines"></div>
-        <!-- Avionics Callsign Header -->
         <PipBoyStatsBar />
-        <!-- Cockpit Side Nav -->
-        <PipBoyNav />
-        <!-- Main content -->
         <slot />
       </div>
     </div>
@@ -26,3 +22,4 @@
 <script setup>
 // Components in `components/` are auto-registered by Nuxt.
 </script>
+

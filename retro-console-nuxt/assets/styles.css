@@ -1,9 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Keep existing custom HUD CSS below. Tailwind utilities can now be used alongside these rules. */
-/* existing custom HUD CSS remains here */
 /* Fighter Jet x Pip-Boy Hybrid Palette */
 :root{
   --bg: #0a0f0a; /* military black-green */
@@ -27,18 +21,18 @@
 html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
 
 /* Fullscreen Cockpit Terminal Shell */
-.pipboy-shell{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(ellipse at center, rgba(0,20,10,0.4), rgba(0,0,0,0.95) 70%)}
+.pipboy-shell{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(ellipse at center, rgba(0,20,10,0.4), rgba(0,0,0,0.95) 70%)}
 
 /* Fighter Jet Bezel with Rivets and Hazard Stripes */
 .pipboy-bezel{
-  width:100%;height:100%;
-  border-radius:6px;padding:24px;
+  width:100%;height:100%;max-width:1480px;max-height:960px;
+  border-radius:6px;padding:32px;
   background:linear-gradient(180deg,var(--bezel-light),var(--bezel-dark));
   box-shadow:
     0 30px 120px rgba(0,0,0,0.95), 
     inset 0 0 140px rgba(0,0,0,0.75),
     inset 0 2px 4px rgba(255,255,255,0.05);
-  border:8px solid #1a1f1a;
+  border:12px solid #1a1f1a;
   display:flex;align-items:center;justify-content:center;position:relative;
   overflow:hidden;
 }
@@ -71,32 +65,12 @@ html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
 .crt-screen{
   width:100%;height:100%;
   background:linear-gradient(180deg, rgba(0,10,5,0.15), rgba(0,0,0,0.3));
-  padding:20px;border-radius:4px;
+  padding:28px;border-radius:4px;
   box-shadow:
     inset 0 0 180px rgba(51, 255, 102, 0.04),
     inset 0 0 60px rgba(0,0,0,0.6);
   position:relative;overflow:hidden;
   border:4px solid rgba(51, 255, 102, 0.25);
-}
-
-/* On professional pages, allow scrolling inside the CRT screen */
-.pro-crt {
-  overflow-y: auto;
-  overflow-x: hidden; /* prevent glare/jitter from causing horizontal scroll */
-  -webkit-overflow-scrolling: touch;
-}
-.pro-crt .screen-content { min-height: 100%; }
-
-/* Responsive adjustments to ensure bezel fills viewport and remove black edges */
-@media (max-width: 1024px){
-  .pipboy-shell{padding:12px}
-  .pipboy-bezel{border-width:6px;padding:16px}
-  .crt-screen{padding:16px}
-}
-@media (max-width: 640px){
-  .pipboy-shell{padding:8px}
-  .pipboy-bezel{border-width:4px;padding:12px}
-  .crt-screen{padding:12px}
 }
 
 /* Scanline overlay */
@@ -119,73 +93,6 @@ html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
   50% { filter: brightness(0.97) contrast(1.03); }
 }
 .crt-screen { animation: crt-flicker 11s infinite; }
-
-/* Gentle subpixel jitter to simulate tube wobble */
-@keyframes crt-jitter {
-  0%, 100% { transform: translateX(0) translateY(0) skewX(0deg); }
-  33% { transform: translateX(0.2px) translateY(-0.1px) skewX(0.03deg); }
-  66% { transform: translateX(-0.2px) translateY(0.1px) skewX(-0.03deg); }
-}
-
-/* Diagonal light sweep to mimic ambient glare */
-@keyframes glare-sweep {
-  0% { transform: translateX(-130%) rotate(10deg); opacity: 0; }
-  10% { opacity: 0.06; }
-  50% { opacity: 0.1; }
-  100% { transform: translateX(130%) rotate(10deg); opacity: 0; }
-}
-
-/* Very soft procedural noise drift */
-@keyframes noise-shift {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  50% { background-position: 10px -8px, -6px 12px, 8px -4px; }
-  100% { background-position: 0 0, 0 0, 0 0; }
-}
-
-/* Apply combined animations only when explicitly opted-in */
-.animated-crt {
-  /* Re-include flicker so we don't lose base animation on override */
-  animation: crt-flicker 12s infinite, crt-jitter 9s infinite;
-}
-
-/* Soft diagonal glare overlay */
-.crt-glare {
-  position: absolute;
-  top: -20%;
-  bottom: -20%;
-  left: -40%;
-  right: -40%;
-  transform: rotate(8deg);
-  background: linear-gradient(
-    90deg,
-    rgba(51, 255, 102, 0) 0%,
-    rgba(255, 255, 255, 0.06) 45%,
-    rgba(255, 255, 255, 0.12) 50%,
-    rgba(255, 255, 255, 0.06) 55%,
-    rgba(51, 255, 102, 0) 100%
-  );
-  mix-blend-mode: screen;
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 4;
-  animation: glare-sweep 22s linear infinite;
-}
-
-/* Subtle green-tinted procedural noise overlay */
-.crt-noise {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.05;
-  mix-blend-mode: screen;
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(51,255,102,0.10) 0%, rgba(51,255,102,0) 10%),
-    radial-gradient(circle at 70% 30%, rgba(51,255,102,0.08) 0%, rgba(51,255,102,0) 12%),
-    radial-gradient(circle at 30% 80%, rgba(51,255,102,0.06) 0%, rgba(51,255,102,0) 9%);
-  filter: blur(0.3px);
-  animation: noise-shift 3.4s steps(12, end) infinite;
-}
 
 /* Scanlines overlay element (extra) */
 .scanlines { 
@@ -219,69 +126,6 @@ html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
   border:3px solid var(--hud-line);
   height:100%;overflow:auto;
   position:relative;
-}
-
-/* Conventional site header inside CRT */
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;margin-bottom:8px;border-bottom:2px solid var(--hud-line);background:rgba(0,0,0,0.25)}
-.site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--crt)}
-.site-logo img{width:36px;height:36px;object-fit:contain;border:2px solid var(--hud-line);background:rgba(0,0,0,0.3)}
-.logo-text{font-weight:700;letter-spacing:3px}
-.site-nav{display:flex;align-items:center;gap:18px}
-.site-nav .nav-link{font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crt-dim);text-decoration:none;padding:8px 10px;border:2px solid transparent;background:rgba(0,0,0,0.15);transition:all .2s ease}
-.site-nav .nav-link:hover{color:var(--crt);border-color:var(--hud-line);background:rgba(51,255,102,0.06)}
-
-/* Conventional site footer inside CRT */
-.site-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;margin-top:8px;border-top:2px solid var(--hud-line);background:rgba(0,0,0,0.25)}
-.footer-left,.footer-right{display:flex;align-items:center;gap:12px}
-.footer-right .nav-link{font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crt-dim);text-decoration:none;padding:6px 8px;border:2px solid transparent;background:rgba(0,0,0,0.15);transition:all .2s ease}
-.footer-right .nav-link:hover{color:var(--crt);border-color:var(--hud-line);background:rgba(51,255,102,0.06)}
-
-/* Main content container for conventional layout feel */
-.site-container{max-width:1100px;margin:0 auto;padding:12px 16px}
-
-/* Professional site wrapper (post-splash) */
-.site-wrapper{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  background:var(--bg);
-}
-
-.main-content{
-  flex:1;
-  position:relative;
-  padding:24px 0;
-  background:linear-gradient(180deg, rgba(0,10,5,0.05), rgba(0,0,0,0.15));
-}
-
-/* Subtle scanlines for main content (toned down) */
-.main-content .scanlines{
-  position:absolute;
-  inset:0;
-  z-index:1;
-  pointer-events:none;
-  background:repeating-linear-gradient(to bottom, rgba(51, 255, 102, 0.015) 0px, rgba(51, 255, 102, 0.015) 1px, transparent 3px, transparent 6px);
-  mix-blend-mode:screen;
-  opacity:0.3;
-}
-
-.main-content .site-container{
-  position:relative;
-  z-index:2;
-}
-
-/* Tone down CRT overlays on professional pages and keep them beneath content */
-.pro-crt .crt-glare { z-index: 1; opacity: 0.05; }
-.pro-crt .crt-noise { z-index: 1; opacity: 0.04; }
-.pro-crt .scanlines { opacity: 0.22; }
-
-/* Ensure content sits above CRT overlays */
-.screen-content { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; }
-
-/* Responsive: on mobile, prefer top header/footer; tone down side cockpit nav */
-@media (max-width: 900px){
-  .cockpit-nav-left,.cockpit-nav-right{display:none}
-  .status-bar{position:static;justify-content:space-between;border-top-color:transparent;padding:8px 0}
 }
 .condition-panel{display:flex;gap:12px;height:100%;align-items:center}
 .condition-layout{flex:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;width:100%;padding:24px;position:relative}
@@ -581,8 +425,7 @@ h1,h2{
 
 /* Small screens: make full width and stack */
 @media (max-width:900px){
-  /* Keep bezel full-bleed on small screens; reduce rounding/padding only */
-  .pipboy-bezel{border-radius:4px;padding:16px}
+  .pipboy-bezel{max-width:96vw;max-height:94vh;border-radius:4px;padding:16px}
   .home-grid{grid-template-columns:1fr;grid-auto-rows:min-content}
   .condition-left{order:2}
   .center-logo{width:360px}

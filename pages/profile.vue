@@ -1,19 +1,19 @@
 <template>
-  <CRTLayout>
+  <ProfessionalLayout>
     <section class="panel profile-panel">
-      <h1>Profile</h1>
+      <h1>Contact</h1>
       <div class="profile-grid">
-        <img src="/logo-placeholder.svg" alt="Logo" class="profile-logo" />
+        <img src="/logo-portfolio.png" alt="CodeGozer" class="profile-logo" />
         <div class="profile-info">
-          <p><strong>Name:</strong> Lorem Ipsum</p>
-          <p><strong>HP:</strong> 89 / 110</p>
-          <p><strong>DT:</strong> 21</p>
+          <p><strong>Name:</strong> Nico Kornuijt</p>
+          <p><strong>Email:</strong> contact@codegozer.dev</p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/CodeGozer" target="_blank">CodeGozer</a></p>
         </div>
       </div>
     </section>
-  </CRTLayout>
+  </ProfessionalLayout>
 </template>
 
 <script setup>
-import CRTLayout from '~/components/CRTLayout.vue'
+import ProfessionalLayout from '~/components/ProfessionalLayout.vue'
 </script>

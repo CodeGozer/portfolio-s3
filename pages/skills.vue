@@ -1,16 +1,16 @@
 <template>
-  <CRTLayout>
+  <ProfessionalLayout>
     <section class="panel">
       <h1>Skills</h1>
       <ul class="skill-list">
         <li v-for="(s, i) in skills" :key="i">{{ s.name }} — {{ s.level }}</li>
       </ul>
     </section>
-  </CRTLayout>
+  </ProfessionalLayout>
 </template>
 
 <script setup>
-import CRTLayout from '~/components/CRTLayout.vue'
+import ProfessionalLayout from '~/components/ProfessionalLayout.vue'
 const skills = [
   { name: 'Hacking', level: 4 },
   { name: 'Charisma', level: 6 },

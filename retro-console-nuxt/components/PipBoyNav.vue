@@ -3,11 +3,11 @@
     <!-- Left Vertical Nav Panel -->
     <aside class="cockpit-nav-left">
       <NuxtLink to="/" class="cockpit-nav-item">
-        <span class="nav-icon text-crt">●</span>
+        <span class="nav-icon">●</span>
         <span class="nav-label">HOME</span>
       </NuxtLink>
       <NuxtLink to="/skills" class="cockpit-nav-item">
-        <span class="nav-icon text-crt">●</span>
+        <span class="nav-icon">●</span>
         <span class="nav-label">SKILLS</span>
       </NuxtLink>
     </aside>
@@ -16,11 +16,11 @@
     <aside class="cockpit-nav-right">
       <NuxtLink to="/quests" class="cockpit-nav-item">
         <span class="nav-label">PROJECTS</span>
-        <span class="nav-icon text-crt">●</span>
+        <span class="nav-icon">●</span>
       </NuxtLink>
       <NuxtLink to="/profile" class="cockpit-nav-item">
         <span class="nav-label">CONTACT</span>
-        <span class="nav-icon text-crt">●</span>
+        <span class="nav-icon">●</span>
       </NuxtLink>
     </aside>
 

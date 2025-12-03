@@ -1,5 +1,4 @@
 <template>
-  <!-- Make the splash page the actual home page -->
   <SplashScreen />
 </template>
 

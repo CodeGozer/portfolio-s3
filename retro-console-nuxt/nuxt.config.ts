@@ -1,12 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   css: ['~/assets/styles.css'],
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {},
-      autoprefixer: {},
-    }
-  },
   ssr: false,
   app: {
     head: {

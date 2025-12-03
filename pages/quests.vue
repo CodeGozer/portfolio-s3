@@ -1,5 +1,5 @@
 <template>
-  <CRTLayout>
+  <ProfessionalLayout>
     <section class="quests-layout">
       <div class="content-row">
         <aside class="quest-list">
@@ -44,17 +44,14 @@
         </div>
       </main>
       </div>
-
-      <PipBoyNav />
     </section>
-  </CRTLayout>
+  </ProfessionalLayout>
 </template>
 
 <script setup>
-import CRTLayout from '~/components/CRTLayout.vue'
-import PipBoyNav from '~/components/PipBoyNav.vue'
+import ProfessionalLayout from '~/components/ProfessionalLayout.vue'
 import { ref } from 'vue'
-import questsData from '~/../projects.json'
+import questsData from '@/projects.json'
 const quests = questsData.projects
 const selected = ref(0)
 </script>
