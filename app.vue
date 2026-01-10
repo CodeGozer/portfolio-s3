@@ -1,11 +1,28 @@
 <template>
-  <!-- Render pages directly; splash is now the home page at pages/index.vue -->
-  <NuxtPage />
-  
+  <div>
+    <Teleport to="body">
+      <PipBoyIntro v-if="showIntro" @finish="showIntro = false" class="z-[9999]" />
+    </Teleport>
+    
+    <!-- Render pages directly -->
+    <div v-if="!showIntro">
+      <NuxtPage />
+    </div>
+  </div>
 </template>
 
 <script setup>
-// No splash gating needed anymore
+import { ref, watch, onMounted } from 'vue'
+
+const showIntro = ref(true)
+
+watch(showIntro, (val) => {
+  console.log('[App] showIntro changed to:', val)
+})
+
+onMounted(() => {
+  console.log('[App] App mounted, showIntro:', showIntro.value)
+})
 </script>
 
 <style>
