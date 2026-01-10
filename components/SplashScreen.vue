@@ -31,30 +31,30 @@
 
           <!-- Cockpit Side Nav -->
           <aside class="cockpit-nav-left splash-nav">
-            <div class="cockpit-nav-item">
+            <NuxtLink to="/" class="cockpit-nav-item">
               <span class="nav-icon">●</span>
               <span class="nav-label">HOME</span>
-            </div>
-            <div class="cockpit-nav-item">
+            </NuxtLink>
+            <NuxtLink to="/skills" class="cockpit-nav-item">
               <span class="nav-icon">●</span>
               <span class="nav-label">SKILLS</span>
-            </div>
+            </NuxtLink>
           </aside>
 
           <aside class="cockpit-nav-right splash-nav">
-            <div class="cockpit-nav-item">
+            <NuxtLink to="/quests" class="cockpit-nav-item">
               <span class="nav-label">PROJECTS</span>
               <span class="nav-icon">●</span>
-            </div>
-            <div class="cockpit-nav-item">
+            </NuxtLink>
+            <NuxtLink to="/profile" class="cockpit-nav-item">
               <span class="nav-label">CONTACT</span>
               <span class="nav-icon">●</span>
-            </div>
+            </NuxtLink>
           </aside>
 
           <!-- Center Content -->
           <div class="splash-content">
-            <img src="/vault-boy-clean.png" alt="Pip-Boy" class="splash-logo image-pixelated" />
+            <img src="/vault-boy-clean.jpg" alt="Pip-Boy" class="splash-logo image-pixelated mix-blend-screen" />
             <h1 class="splash-title">PORTFOLIO TERMINAL</h1>
             <p class="splash-subtitle">INITIALIZING SYSTEMS<span class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span></p>
             <NuxtLink to="/quests" class="enter-button">
@@ -121,6 +121,10 @@
 
 .image-pixelated {
   image-rendering: pixelated;
+}
+
+.mix-blend-screen {
+  mix-blend-mode: screen;
 }
 
 .splash-title {

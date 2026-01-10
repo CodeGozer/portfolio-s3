@@ -21,7 +21,7 @@
         <!-- Glitch Effect Wrapper -->
         <div v-if="introStage === 'glitch' || introStage === 'mascot'" class="relative flex flex-col items-center" :class="{ 'glitch-effect': introStage === 'glitch' }">
              <!-- Mascot Image -->
-            <img v-show="introStage === 'mascot'" src="/vault-boy-clean.png" alt="Pip-Boy" class="w-64 h-64 md:w-96 md:h-96 object-contain image-pixelated mb-8 animate-pop-in" />
+            <img v-show="introStage === 'mascot'" src="/vault-boy-intro.jpg" alt="Pip-Boy" class="w-64 h-64 md:w-96 md:h-96 object-contain image-pixelated mb-8 animate-pop-in mix-blend-screen" />
             
             <!-- Text UI -->
             <div v-if="introStage === 'mascot'" class="text-center">
@@ -230,5 +230,9 @@ const sleep = (ms: number) => {
     filter: brightness(0);
     opacity: 0;
   }
+}
+
+.mix-blend-screen {
+  mix-blend-mode: screen;
 }
 </style>
