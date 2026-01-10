@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <NuxtLink to="/" class="site-logo">
-      <img src="/logo-portfolio.png" alt="CodeGozer" />
+      <img src="/vault-boy-clean.png" alt="CodeGozer" style="image-rendering: pixelated;" />
       <span class="logo-text">CODEGOZER</span>
     </NuxtLink>
     <nav class="site-nav">

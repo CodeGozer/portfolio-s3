@@ -54,7 +54,7 @@
 
           <!-- Center Content -->
           <div class="splash-content">
-            <img src="/logo-portfolio.png" alt="CodeGozer" class="splash-logo" />
+            <img src="/vault-boy-clean.png" alt="Pip-Boy" class="splash-logo image-pixelated" />
             <h1 class="splash-title">PORTFOLIO TERMINAL</h1>
             <p class="splash-subtitle">INITIALIZING SYSTEMS<span class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span></p>
             <NuxtLink to="/quests" class="enter-button">
@@ -116,6 +116,11 @@
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 32px var(--crt-glow);
   animation: hud-pulse 3s infinite;
+  object-fit: contain;
+}
+
+.image-pixelated {
+  image-rendering: pixelated;
 }
 
 .splash-title {
