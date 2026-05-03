@@ -18,9 +18,11 @@
 
           <!-- Pip-Boy Tab Navigation -->
           <div class="sub-nav">
-            <div class="sub-nav-item active">STATS</div>
+            <NuxtLink to="/skills" class="sub-nav-item active">STATS</NuxtLink>
             <div class="sub-nav-item">ITEMS</div>
-            <div class="sub-nav-item">DATA</div>
+            <NuxtLink to="/quests" class="sub-nav-item">DATA</NuxtLink>
+            <NuxtLink to="/profile" class="sub-nav-item">LOCAL MAP</NuxtLink>
+            <div class="sub-nav-item">RADIO</div>
           </div>
 
           <!-- Main Two-Pane Content -->
@@ -28,7 +30,7 @@
             
             <!-- LEFT PANE: Skill List -->
             <section class="pane left-pane">
-              <div class="pane-header">SKILLS</div>
+              <div class="pane-header">SKILLS & PERKS</div>
               <ul class="skill-list-interactive">
                 <li v-for="skill in skills" :key="skill.name" 
                     :class="{ active: selectedSkill.name === skill.name }"
@@ -47,11 +49,12 @@
                 </li>
               </ul>
               
-              <div class="pane-header mt-8">PERKS</div>
+              <div class="pane-header mt-8">ACTIVE PERKS</div>
               <div class="perks-list">
-                <div class="perk-badge" title="Certified Scrum Master">★ CSM</div>
-                <div class="perk-badge" title="Employee of the Month">★ EOTM</div>
-                <div class="perk-badge" title="Bug Hunter">★ HUNTER</div>
+                <div class="perk-badge" title="Leergierige Student Front-end">★ EAGER LEARNER</div>
+                <div class="perk-badge" title="Figma Ontwerper">★ PIXEL PUSHER</div>
+                <div class="perk-badge" title="Geduldig bij code bugs">★ ZEN CODER</div>
+                <div class="perk-badge" title="[PLACEHOLDER PERK]">★ TEAM PLAYER</div>
               </div>
             </section>
 
@@ -61,29 +64,29 @@
                <div class="special-stats">
                   <div class="stat-box">
                     <span class="stat-letter">S</span>
-                    <span class="stat-val">4</span>
-                    <span class="stat-label">RESILIENCE</span>
-                  </div>
-                  <div class="stat-box">
-                    <span class="stat-letter">P</span>
-                    <span class="stat-val">8</span>
-                    <span class="stat-label">PERCEPTION</span>
+                    <span class="stat-val">6</span>
+                    <span class="stat-label">STAMINA</span>
                   </div>
                   <div class="stat-box active">
+                    <span class="stat-letter">P</span>
+                    <span class="stat-val">8</span>
+                    <span class="stat-label">PIXELS</span>
+                  </div>
+                  <div class="stat-box">
                     <span class="stat-letter">I</span>
-                    <span class="stat-val">9</span>
+                    <span class="stat-val">7</span>
                     <span class="stat-label">INTEL</span>
                   </div>
                   <div class="stat-box">
                     <span class="stat-letter">C</span>
-                    <span class="stat-val">7</span>
-                    <span class="stat-label">GHARISMA</span>
+                    <span class="stat-val">8</span>
+                    <span class="stat-label">CREATIEF</span>
                   </div>
                </div>
 
                <!-- Avatar Display -->
                <div class="avatar-display">
-                 <img src="/vault-boy-intro.jpg" alt="Avatar" class="avatar-img mix-blend-screen image-pixelated" />
+                 <img :src="selectedSkill.image" alt="Vault Boy Skill Avatar" class="avatar-img mix-blend-screen image-pixelated" />
                </div>
 
                <!-- Description Area -->
@@ -124,44 +127,49 @@ import { ref } from 'vue'
 
 const skills = [
   { 
-    name: 'VUE.JS', 
-    value: 95, 
-    tag: true,
-    description: 'Progressive JavaScript framework for building user interfaces. Specialized in Composition API and Nuxt.',
-    effect: '+20% Dev Speed',
-    requirement: '3+ Years Exp'
-  },
-  { 
-    name: 'REACT', 
-    value: 85, 
-    tag: false,
-    description: 'A JavaScript library for building user interfaces. Proficient in Hooks and Next.js ecosystem.',
-    effect: 'Cross-platform compatibility',
-    requirement: 'Production Shipped'
-  },
-  { 
-    name: 'UI / UX', 
+    name: 'FIGMA (UI/UX)', 
     value: 80, 
     tag: true,
-    description: 'Designing intuitive and aesthetic user experiences. Focus on accessibility and retro-futurism.',
-    effect: '+15% User Retention',
-    requirement: 'Figma Mastery'
+    description: 'Een website ontwerpen is geen probleem. Ik kan wirehuidframen en prototypes maken vóór ik in de code duik.',
+    effect: '+50% Aesthetics',
+    requirement: 'Creatieve Geest',
+    image: '/tumblr_nq141xLbmA1riwt83o5_500.webp'
   },
   { 
-    name: 'TYPESCRIPT', 
-    value: 90, 
-    tag: false,
-    description: 'Typed superset of JavaScript. Ensures type safety and scalable codebases.',
-    effect: '-40% Runtime Errors',
-    requirement: 'Strict Mode'
-  },
-  { 
-    name: 'PROJECT MGMT', 
+    name: 'HTML/CSS/JS', 
     value: 75, 
+    tag: true,
+    description: 'De fundering van het web. Ik heb een redelijk goede en stabiele basiskennis van hoe websites werken.',
+    effect: '+30% Structuur',
+    requirement: 'Code Editor',
+    image: '/tumblr_nq141xLbmA1riwt83o8_500.webp'
+  },
+  { 
+    name: 'TAILWIND CSS', 
+    value: 70, 
     tag: false,
-    description: 'Agile methodologies and team leadership. Keeping projects on track (and under budget).',
-    effect: '+10 Leadership',
-    requirement: 'Jira Lvl 50'
+    description: 'Utility-first styling framework. Ik bouw redelijk vlot moderne en responsive lay-outs hiermee op.',
+    effect: '+20% Dev Speed',
+    requirement: 'Utility Classes',
+    image: '/tumblr_nq141xLbmA1riwt83o3_500.webp'
+  },
+  { 
+    name: 'PUBLIC SPEAKING', 
+    value: 65, 
+    tag: false,
+    description: '[VUlvulling vereist] Ik ben sterk in presenteren en kan mijn technische keuzes en concepten moeiteloos overbrengen aan groepen.',
+    effect: '+40% Charisma',
+    requirement: 'Publiek',
+    image: '/vault-boy-intro.jpg'
+  },
+  { 
+    name: '[SOFT SKILL PLACEHOLDER]', 
+    value: 50, 
+    tag: false,
+    description: '[VUlvulling vereist] Placeholder tekst voor een persoonlijke soft-skill, bijvoorbeeld teamwerk, leiderschap of planning.',
+    effect: '+10% Teamwork',
+    requirement: 'Samenwerking',
+    image: '/vault-boy-intro.jpg'
   }
 ]
 
@@ -169,7 +177,6 @@ const selectedSkill = ref(skills[0])
 
 const selectSkill = (skill) => {
   selectedSkill.value = skill
-  // Optional: Play click sound here
 }
 </script>
 

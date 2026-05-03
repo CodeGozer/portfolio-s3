@@ -1,7 +1,7 @@
 {
     "projects": [
         {
-            "title": "Branding Project",
+            "title": "Verwijder dit",
             "description": "Een uitgebreid branding project voor de EDM artiest Boris Schmidt, inclusief moodboard, stylescape, brand guide en contentstrategie.",
             "image": "images/prophecy-dungeon.jpg",
             "sections": [
@@ -142,22 +142,22 @@
                     "title": "Project Galerij",
                     "images": [
                         {
-                            "src": "images/auditieve beperking.png",
+                            "src": "/auditieve beperking.png",
                             "alt": "Website Interface",
                             "caption": "De ontwikkelde auditieve beperkingen interface"
                         },
                         {
-                            "src": "images/auditieve beperkingen feedback pagina.png",
+                            "src": "/auditieve beperkingen feedback pagina.png",
                             "alt": "Toegankelijkheidsfuncties",
                             "caption": "Implementatie van de feedback pagina"
                         },
                         {
-                            "src": "images/dyslexie simulatie.png",
+                            "src": "/dyslexie simulatie.png",
                             "alt": "Website Interface",
                             "caption": "De ontwikkelde dyslexie simulatie interface"
                         },
                         {
-                            "src": "images/slecht kleurcontrast simulatie.png",
+                            "src": "/slecht kleurcontrast simulatie.png",
                             "alt": "Toegankelijkheidsfuncties",
                             "caption": "Implementatie van de kleurcontrast pagina"
                         }
