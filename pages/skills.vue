@@ -18,11 +18,8 @@
 
           <!-- Pip-Boy Tab Navigation -->
           <div class="sub-nav">
-            <NuxtLink to="/skills" class="sub-nav-item active">STATS</NuxtLink>
-            <div class="sub-nav-item">ITEMS</div>
-            <NuxtLink to="/quests" class="sub-nav-item">DATA</NuxtLink>
-            <NuxtLink to="/profile" class="sub-nav-item">LOCAL MAP</NuxtLink>
-            <div class="sub-nav-item">RADIO</div>
+            <div class="sub-nav-item" :class="{ active: activeTab === 'STATS' }" @click="activeTab = 'STATS'">STATS</div>
+            <div class="sub-nav-item" :class="{ active: activeTab === 'PERKS' }" @click="activeTab = 'PERKS'">PERKS</div>
           </div>
 
           <!-- Main Two-Pane Content -->
@@ -32,7 +29,7 @@
             <section class="pane left-pane">
               <div class="pane-header">SKILLS & PERKS</div>
               <ul class="skill-list-interactive">
-                <li v-for="skill in skills" :key="skill.name" 
+                <li v-for="skill in displayedSkills" :key="skill.name" 
                     :class="{ active: selectedSkill.name === skill.name }"
                     @mouseenter="selectSkill(skill)"
                     @click="selectSkill(skill)">
@@ -123,9 +120,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 
-const skills = [
+const activeTab = ref('STATS')
+
+const devSkills = [
   { 
     name: 'FIGMA (UI/UX)', 
     value: 80, 
@@ -154,26 +153,61 @@ const skills = [
     image: '/tumblr_nq141xLbmA1riwt83o3_500.webp'
   },
   { 
-    name: 'PUBLIC SPEAKING', 
-    value: 65, 
-    tag: false,
-    description: '[VUlvulling vereist] Ik ben sterk in presenteren en kan mijn technische keuzes en concepten moeiteloos overbrengen aan groepen.',
-    effect: '+40% Charisma',
-    requirement: 'Publiek',
-    image: '/vault-boy-intro.jpg'
+    name: 'NUXT.JS (VUE)', 
+    value: 75, 
+    tag: true,
+    description: 'Mijn go-to framework voor webapplicaties. Ervaring met component-based architecture en Nuxt conventies (zoals dit portfolio).',
+    effect: '+50% Vue Power',
+    requirement: 'Vue.js / TypeScript',
+    image: '/tumblr_nq141xLbmA1riwt83o7_500.webp'
   },
   { 
-    name: '[SOFT SKILL PLACEHOLDER]', 
-    value: 50, 
+    name: 'NEXT.JS (REACT)', 
+    value: 65, 
     tag: false,
-    description: '[VUlvulling vereist] Placeholder tekst voor een persoonlijke soft-skill, bijvoorbeeld teamwerk, leiderschap of planning.',
-    effect: '+10% Teamwork',
-    requirement: 'Samenwerking',
-    image: '/vault-boy-intro.jpg'
+    description: 'Het toonaangevende React framework. Bekend met server-side rendering, routing en dynamische front-ends.',
+    effect: '+40% SSR Speed',
+    requirement: 'React.js / TypeScript',
+    image: '/tumblr_nq141xLbmA1riwt83o2_400.webp'
   }
 ]
 
-const selectedSkill = ref(skills[0])
+const softSkills = [
+  { 
+    name: 'PUBLIC SPEAKING', 
+    value: 65, 
+    tag: false,
+    description: 'Ik ben sterk in presenteren en kan mijn technische keuzes en concepten moeiteloos overbrengen aan groepen en klanten.',
+    effect: '+40% Charisma',
+    requirement: 'Publiek',
+    image: '/tumblr_nq141xLbmA1riwt83o2_400.webp'
+  },
+  { 
+    name: 'BLIND TYPEN', 
+    value: 90, 
+    tag: true,
+    description: 'Geen tijd te verliezen tijdens het coderen. Door vloeiend blind te typen zet ik gedachten razendsnel om in code, zonder ooit naar het toetsenbord te hoeven kijken.',
+    effect: '+30% Productiviteit',
+    requirement: 'Spiergeheugen',
+    image: '/tumblr_nq141xLbmA1riwt83o7_500.webp'
+  },
+  { 
+    name: 'POLYGLOT (TALEN)', 
+    value: 70, 
+    tag: false,
+    description: 'Vloeiend in Nederlands en Engels. Daarnaast spreek ik ook een aardig woordje Duits en begrijp ik de basis van Indonesisch. Internationale communicatie is geen probleem.',
+    effect: '+20% Lokalisatie',
+    requirement: 'Communicatie',
+    image: '/tumblr_nq141xLbmA1riwt83o3_500.webp'
+  }
+]
+
+const displayedSkills = computed(() => activeTab.value === 'STATS' ? devSkills : softSkills)
+const selectedSkill = ref(devSkills[0])
+
+watch(activeTab, (newTab) => {
+  selectedSkill.value = newTab === 'STATS' ? devSkills[0] : softSkills[0]
+})
 
 const selectSkill = (skill) => {
   selectedSkill.value = skill

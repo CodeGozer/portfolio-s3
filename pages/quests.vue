@@ -29,7 +29,6 @@
                 <!-- Image Display -->
                 <div class="carousel-img-container" @click="showLightbox = true" title="Klik om uit te vergroten" ref="carouselImgRef">
                   <img v-if="currentImage" :src="currentImage.src" :alt="currentImage.alt" />
-                  <div class="crs-filter"></div>
                 </div>
 
                 <button class="carousel-btn next-btn" @click.stop="nextImage">&gt;</button>
@@ -259,14 +258,13 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: contain; 
-  filter: grayscale(0.3) sepia(0.6) hue-rotate(75deg) contrast(1.2) brightness(0.9);
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease;
   animation: hud-pulse 3s infinite;
 }
 
 /* On hover: brighten image to show interactivity */
 .carousel-img-container:hover img {
-  filter: grayscale(0.1) sepia(0.3) hue-rotate(75deg) contrast(1.1) brightness(1.2);
+  transform: scale(1.02);
 }
 
 /* Dense CRT / Scanline filter overlaid directly on image */
@@ -345,8 +343,6 @@ onUnmounted(() => {
   max-width: 100%;
   max-height: calc(80vh - 100px);
   object-fit: contain;
-  /* Reduced filter in lightbox so they can properly inspect the image */
-  filter: sepia(0.2) hue-rotate(75deg) contrast(1.1);
   border: 2px solid var(--hud-line);
 }
 .lightbox-caption {

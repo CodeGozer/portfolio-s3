@@ -1,119 +1,119 @@
 {
     "projects": [
         {
-            "title": "Verwijder dit",
-            "description": "Een uitgebreid branding project voor de EDM artiest Boris Schmidt, inclusief moodboard, stylescape, brand guide en contentstrategie.",
-            "image": "images/prophecy-dungeon.jpg",
+            "title": "Nicopedia",
+            "description": "Een AI-aangedreven platform met een 'Concept Blender' en 'Inject Chaos' functionaliteit, ontworpen voor een naadloze en dynamische gebruikerservaring.",
+            "image": "/Nicopedia title scherm.png",
             "sections": [
                 {
                     "title": "Project Overzicht",
-                    "content": "Dit project draaide om het ontwikkelen van de branding voor de EDM artiest Boris Schmidt. In vier weken tijd hebben we een complete brand identity ontwikkeld, bestaande uit een moodboard, stylescape, brand guide en contentstrategie. Het doel was om de artiest te helpen bij het promoten van zijn muziek en een jonger publiek aan te spreken voor een ouder muziekgenre.",
+                    "content": "Nicopedia is een innovatief platform dat gebruik maakt van AI om concepten samen te voegen via de 'Concept Blender'. Tijdens de ontwikkeling is er sterk gefocust op de UX, met name het optimaliseren van de tutorial overlays, het verhelpen van layout-problemen en het uitbreiden van de 'Inject Chaos' functie zodat resultaten dynamisch aan het grid worden toegevoegd in plaats van overschreven.",
                     "type": "text"
                 },
                 {
                     "title": "Belangrijke Deliverables",
                     "content": [
-                        "Moodboard ontwikkeling",
-                        "Stylescape ontwerp",
-                        "Logo iteraties",
-                        "Brand guide documentatie",
-                        "Content strategie"
+                        "Ontwikkeling van de AI-aangedreven Concept Blender",
+                        "Implementatie van de 'Inject Chaos' feature",
+                        "Stabilisatie en optimalisatie van de tutorial overlay",
+                        "Responsive design zonder horizontale scrollbar bugs",
+                        "Dynamische rendering van zoekresultaten in een grid"
                     ],
                     "type": "list"
                 },
                 {
                     "title": "Reflectie",
-                    "content": "Bij het terugkijken op dit project zijn er enkele punten van verbetering. Er had meer aandacht besteed kunnen worden aan gebruikerstests en het achterhalen van de wensen van de klant. De contentstrategie had ook grondiger uitgewerkt kunnen worden, aangezien deze voornamelijk conceptueel was en sterke onderbouwing miste. Over het algemeen lijkt het erop dat de gemakkelijke weg is gekozen in dit project, wat heeft geleid tot een gemiddeld resultaat. Hoewel er veel moeite is gestoken in het creëren van een logo, ontbrak het aan samenhang in de algehele merkhandleiding. Dit kwam door verschillende meningen binnen het team en de tijdsdruk waarmee we te maken hadden.",
+                    "content": "Bij het ontwikkelen van Nicopedia was het een interessante uitdaging om complexe AI-interacties soepel te laten aanvoelen voor de eindgebruiker. Het itereren op de tutorial overlay en de beslissing om nieuwe data aan het grid toe te voegen in plaats van alles te vernieuwen, heeft enorm geholpen bij de algehele stabiliteit en beleving. Dit project heeft mijn inzicht in state management en het bouwen van robuuste interfaces aanzienlijk vergroot.",
                     "type": "text"
                 },
                 {
                     "title": "Project Galerij",
                     "images": [
                         {
-                            "src": "images/moodboard boris.png",
-                            "alt": "Moodboard",
-                            "caption": "Moodboard voor Boris Schmidt branding"
+                            "src": "/nicopedia home.png",
+                            "alt": "Nicopedia Home",
+                            "caption": "De homepage van Nicopedia"
                         },
                         {
-                            "src": "images/stylescape boris.png",
-                            "alt": "Stylescape",
-                            "caption": "Stylescape voorstel"
+                            "src": "/nicopedia zoek functie.png",
+                            "alt": "Nicopedia Zoekfunctie",
+                            "caption": "De interactieve zoekfunctionaliteit"
                         },
                         {
-                            "src": "images/logo iteraties boris.png",
-                            "alt": "Logo Iteraties",
-                            "caption": "Logo ontwerp iteraties"
+                            "src": "/nicopedia wiki redesign.png",
+                            "alt": "Nicopedia Wiki Redesign",
+                            "caption": "Het opnieuw ontworpen wiki design"
                         },
                         {
-                            "src": "images/content strategie boris.png",
-                            "alt": "Content Strategie",
-                            "caption": "Overzicht van de content strategie"
-                        },
-                        {
-                            "src": "images/brand guide boris.png",
-                            "alt": "Brand Guide",
-                            "caption": "Uittreksels uit de Brand Guide"
+                            "src": "/nicopedia .png",
+                            "alt": "Nicopedia Artikel",
+                            "caption": "Detailweergave van een gegenereerd concept"
                         }
                     ],
                     "type": "gallery"
                 },
                 {
                     "title": "Documentatie",
-                    "content": "Voor een uitgebreide documentatie van dit project, inclusief alle iteraties, het volledige proces en de eindresultaten, bekijk de project documentatie PDF. Je kunt ook de Figma designs bekijken voor een interactieve ervaring van de brand guide.",
+                    "content": "Voor een uitgebreide documentatie van het Nicopedia project, inclusief de architectuur en de development journey, bekijk het onderstaande document.",
                     "type": "documentation",
-                    "pdf": "project 1 -  boris schmidt.pdf",
-                    "figma": "https://www.figma.com/design/laPAySW2X4aS7i6eRHvS7i/Brand-guide-project-groep-3?node-id=0-1&t=wQdArvHYcz821SlA-1"
+                    "git": "https://github.com/nicokornuijt/nicopedia",
+                    "website": "https://nicopedia.vercel.app/"
                 }
             ]
         },
         {
-            "title": "Create that UX",
-            "description": "Een digitaal prototype dat de Experience Square - een fysieke installatie voor het ervaren van visuele en auditieve beperkingen - vertaalt naar een digitale omgeving.",
-            "image": "images/prophecy-banner-learning-outcome-1.png",
+            "title": "OwowProject",
+            "description": "Een performante web-based Flip-dot Animation Editor, met een sterke focus op separation of concerns, hardware mimicry en 60fps performance.",
+            "image": "/screenshot owow main menu.png",
             "sections": [
                 {
                     "title": "Project Overzicht",
-                    "content": "Gedurende vier weken werkten we aan een opdracht waarbij we de Experience Square – een fysieke installatie die laat ervaren hoe het is om visuele en auditieve beperkingen te hebben tijdens het gebruik van websites – digitaal moesten vertalen. In het beginfase onderzochten we verschillende soorten beperkingen, waarna we ons vooral richtten op visuele beperkingen. We verdiepten ons in de impact hiervan op webgebruik. Met de opgedane kennis ontwikkelden we een digitaal prototype. Dit project werd uitgevoerd samen met vier medestudenten.",
+                    "content": "Het OwowProject is een Flip-dot Animation Editor waarbij de software naadloos is afgestemd op de fysieke restricties van de hardware (een 80x20 monochroom scherm). Het project leunt op drie belangrijke architecturale pijlers: The Renderer-Editor Dichotomy, Client Sovereignty, en Hardware Mimicry. Dit resulteerde in een krachtige, naadloze editor-ervaring.",
                     "type": "text"
                 },
                 {
                     "title": "Belangrijke Deliverables",
                     "content": [
-                        "Projectplan en taakverdeling",
-                        "Analyse van visuele beperkingen",
-                        "Onderzoeksvoorstel met centrale vragen",
-                        "Slechtzichtheidssimulatie ontwerp",
-                        "Digitaal prototype ontwikkeling"
+                        "Strikte scheiding tussen PixelCanvas (editor) en PixelDisplay (renderer)",
+                        "Implementatie van hardware limitaties (80x20 resolutie, monochroom)",
+                        "60fps client-side rendering via requestAnimationFrame en CanvasRefs",
+                        "Complexe flood-fill en dither-operaties zonder render-vertraging",
+                        "Herbruikbare renderer voor AnimationCard bibliotheken"
                     ],
                     "type": "list"
                 },
                 {
-                    "title": "Reflectie",
-                    "content": "Ik ben niet helemaal tevreden over mijn eigen inzet tijdens dit project. Ik realiseer me dat ik meer had kunnen bijdragen, vooral omdat er nog ruimte was om mijn rol verder uit te breiden. In de toekomst wil ik actiever deelnemen en meer verantwoordelijkheid nemen om zo een grotere bijdrage te leveren aan het team en het projectresultaat.",
+                    "title": "Architectural Strategy",
+                    "content": "Voor een tekenprogramma is de vertraging van Server Side Rendering (SSR) dodelijk; een penseelstreek moet direct voelen. Daarom draait de kern volledig aan de client-zijde en omzeilt het de standaard React-render cycles om 60fps te behouden. Daarnaast is de interactielogica (PixelCanvas) volledig losgekoppeld van de lichtgewicht renderer (PixelDisplay), zodat deze overal efficiënt hergebruikt kan worden.",
                     "type": "text"
                 },
                 {
                     "title": "Project Galerij",
                     "images": [
                         {
-                            "src": "images/presentatie cardan UX.jpg",
-                            "alt": "presentatie van het figma prototype",
-                            "caption": "presentatie van het fimga prototype"
+                            "src": "/screenshot owow main menu.png",
+                            "alt": "OwowProject Main Menu",
+                            "caption": "Hoofdmenu van de Owow Flip-dot Editor"
+                        },
+                        {
+                            "src": "/screenshot owow animation maker.png",
+                            "alt": "OwowProject Animation Maker",
+                            "caption": "De animation maker interface in actie"
                         }
                     ],
                     "type": "gallery"
                 },
                 {
                     "title": "Documentatie",
-                    "content": "Voor een uitgebreide documentatie van dit project, inclusief het onderzoek naar visuele beperkingen en het onderzoeksvoorstel, bekijk de project documentatie.",
+                    "content": "Voor een gedetailleerde blik op de keuzes en architectuur, bekijk de Design Rationale, de GitHub repository en de live applicatie.",
                     "type": "documentation",
-                    "pdf": "PROJECT 2- FIX THAT UX.pdf",
-                    "figma": "https://www.figma.com/proto/zvBkWrOHRqpQH0wJWZYjFo/Cardan?node-id=151-4&t=32b7gHTxkD2Cprfg-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=151%3A4&show-proto-sidebar=1"
+                    "git": "https://github.com/LuukyPuuky/OwowProject",
+                    "website": "https://owow-project-nico-animation-edit-git-f0555e-codegozers-projects.vercel.app/"
                 }
             ]
         },
         {
-            "title": "Development",
+            "title": "Cardan Experience Square",
             "description": "De ontwikkeling van een werkende website gebaseerd op het UX prototype, met focus op toegankelijkheid en gebruikerservaring.",
             "image": "images/madison-parker-dungeon-prophecy-7.jpg",
             "sections": [
@@ -168,7 +168,6 @@
                     "title": "Documentatie",
                     "content": "Voor een uitgebreide documentatie van dit project, inclusief het Figma prototype, de live website en de Git repository, bekijk de onderstaande links.",
                     "type": "documentation",
-                    "pdf": "PROJECT 3 – DEVELOPMENT.pdf",
                     "figma": "https://www.figma.com/proto/HOaKHvzGYPiUdqkCOMPzHC/Project-UX?page-id=35%3A3&node-id=46-41&p=f&viewport=569%2C160%2C0.03&t=rfOx4UK5jTw4aNiH-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=46%3A41",
                     "website": "https://i513900.hera.fontysict.net/cardan-dev-opdracht/",
                     "git": "https://git.fhict.nl/I554632/cardan-dev-opdracht.git"
@@ -176,9 +175,9 @@
             ]
         },
         {
-            "title": "Personal Project X",
+            "title": "Mello: Trello Clone",
             "description": "Een moderne projectmanagement applicatie ontwikkeld met Nuxt.js, geïnspireerd op Trello maar met een eigen unieke stijl en functionaliteiten.",
-            "image": "images/madison-parker-dungeon-prophecy-6.jpg",
+            "image": "/Meerdere trello boards.png",
             "sections": [
                 {
                     "title": "Project Overzicht",
@@ -206,22 +205,22 @@
                     "title": "Project Galerij",
                     "images": [
                         {
-                            "src": "images/Meerdere trello boards.png",
+                            "src": "/Meerdere trello boards.png",
                             "alt": "Multiple Boards",
                             "caption": "Overzicht van meerdere project boards"
                         },
                         {
-                            "src": "images/mijn profiel pagina.png",
+                            "src": "/mijn profiel pagina.png",
                             "alt": "Profile Page",
                             "caption": "Gebruikersprofiel pagina met persoonlijke instellingen"
                         },
                         {
-                            "src": "images/een aangemaakt trello board.png",
+                            "src": "/een aangemaakt trello board.png",
                             "alt": "Created Board",
                             "caption": "Voorbeeld van een nieuw aangemaakt project board"
                         },
                         {
-                            "src": "images/Maak profiel aan.png",
+                            "src": "/Maak profiel aan.png",
                             "alt": "Create Profile",
                             "caption": "Interface voor het aanmaken van een nieuw profiel"
                         }
@@ -232,7 +231,6 @@
                     "title": "Documentatie",
                     "content": "Voor een uitgebreide documentatie van dit project, inclusief het projectplan, Figma schetsen en technische specificaties, bekijk de onderstaande links.",
                     "type": "documentation",
-                    "pdf": "Project X - Mello.pdf",
                     "figma": "https://www.figma.com/design/3eSLDfKFmiEwUjDaYEy0ZG/Untitled?node-id=0-1&t=FCLoKSo8Ubnq5nr5-1",
                     "git": "https://git.fhict.nl/I554632/mello-project-x.git",
                     "website": "https://i554632.hera.fontysict.net/"

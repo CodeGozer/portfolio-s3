@@ -16,14 +16,7 @@
           <!-- Site Header -->
           <SiteHeader />
 
-          <!-- Pip-Boy Tab Navigation -->
-          <div class="sub-nav">
-            <NuxtLink to="/skills" class="sub-nav-item">STATS</NuxtLink>
-            <div class="sub-nav-item">ITEMS</div>
-            <NuxtLink to="/quests" class="sub-nav-item">DATA</NuxtLink>
-            <NuxtLink to="/profile" class="sub-nav-item active">LOCAL MAP</NuxtLink>
-            <div class="sub-nav-item">RADIO</div>
-          </div>
+
 
           <!-- Main Two-Pane Content -->
           <main class="contact-layout">
