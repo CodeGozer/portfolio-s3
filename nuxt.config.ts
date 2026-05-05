@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      title: 'Retro Console',
+      title: 'Nico Kornuijt Portfolio',
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },

@@ -62,13 +62,13 @@
             ]
         },
         {
-            "title": "OwowProject",
+            "title": "Owow Animatie Maker",
             "description": "Een performante web-based Flip-dot Animation Editor, met een sterke focus op separation of concerns, hardware mimicry en 60fps performance.",
             "image": "/screenshot owow main menu.png",
             "sections": [
                 {
                     "title": "Project Overzicht",
-                    "content": "Het OwowProject is een Flip-dot Animation Editor waarbij de software naadloos is afgestemd op de fysieke restricties van de hardware (een 80x20 monochroom scherm). Het project leunt op drie belangrijke architecturale pijlers: The Renderer-Editor Dichotomy, Client Sovereignty, en Hardware Mimicry. Dit resulteerde in een krachtige, naadloze editor-ervaring.",
+                    "content": "De Owow Animatie Maker is een Flip-dot Animation Editor waarbij de software naadloos is afgestemd op de fysieke restricties van de hardware (een 80x20 monochroom scherm). Het project leunt op drie belangrijke architecturale pijlers: The Renderer-Editor Dichotomy, Client Sovereignty, en Hardware Mimicry. Dit resulteerde in een krachtige, naadloze editor-ervaring.",
                     "type": "text"
                 },
                 {
@@ -92,12 +92,12 @@
                     "images": [
                         {
                             "src": "/screenshot owow main menu.png",
-                            "alt": "OwowProject Main Menu",
+                            "alt": "Owow Animatie Maker Main Menu",
                             "caption": "Hoofdmenu van de Owow Flip-dot Editor"
                         },
                         {
                             "src": "/screenshot owow animation maker.png",
-                            "alt": "OwowProject Animation Maker",
+                            "alt": "Owow Animatie Maker Interface",
                             "caption": "De animation maker interface in actie"
                         }
                     ],
@@ -108,7 +108,7 @@
                     "content": "Voor een gedetailleerde blik op de keuzes en architectuur, bekijk de Design Rationale, de GitHub repository en de live applicatie.",
                     "type": "documentation",
                     "git": "https://github.com/LuukyPuuky/OwowProject",
-                    "website": "https://owow-project-nico-animation-edit-git-f0555e-codegozers-projects.vercel.app/"
+                    "website": "https://owow-project-nico-animation-editor-rosy.vercel.app/"
                 }
             ]
         },

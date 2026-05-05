@@ -58,7 +58,15 @@
                 <a v-if="section.pdf" :href="section.pdf" target="_blank">PDF Documentatie</a>
                 <a v-if="section.figma" :href="section.figma" target="_blank">Figma</a>
                 <a v-if="section.website" :href="section.website" target="_blank">Website</a>
-                <a v-if="section.git" :href="section.git" target="_blank">Git Repo</a>
+                <button
+                  v-if="section.git && isFontysOnlyGit(activeQuest)"
+                  type="button"
+                  class="doc-link"
+                  @click="openGitWarning(section.git)"
+                >
+                  Git Repo
+                </button>
+                <a v-else-if="section.git" :href="section.git" target="_blank" rel="noopener">Git Repo</a>
               </div>
             </template>
           </div>
@@ -84,6 +92,25 @@
         </div>
       </div>
     </Teleport>
+
+    <!-- FONTYS ACCESS WARNING -->
+    <Teleport to="body">
+      <div v-if="gitWarningUrl" class="git-warning-overlay" @click="closeGitWarning">
+        <div class="git-warning-panel" role="dialog" aria-modal="true" aria-labelledby="git-warning-title" @click.stop>
+          <button class="git-warning-close" type="button" @click="closeGitWarning">[X] CLOSE</button>
+          <p class="git-warning-kicker">ACCESS CHECK</p>
+          <h2 id="git-warning-title">Fontys Login Vereist</h2>
+          <p>
+            Deze Git repository is alleen toegankelijk voor Fontys studenten of docenten.
+            Je hebt dus een geldig Fontys account nodig om de code te bekijken.
+          </p>
+          <div class="git-warning-actions">
+            <button type="button" class="git-warning-cancel" @click="closeGitWarning">Annuleren</button>
+            <a :href="gitWarningUrl" target="_blank" rel="noopener" @click="closeGitWarning">Open Git Repo</a>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </ProfessionalLayout>
 </template>
 
@@ -97,6 +124,7 @@ const quests = questsData.projects
 const selected = ref(0)
 const tick = ref(0)
 const showLightbox = ref(false)
+const gitWarningUrl = ref('')
 const manualOverride = ref(false)
 let timer = null
 
@@ -137,6 +165,18 @@ const nextImage = () => {
   tick.value++
 }
 
+const isFontysOnlyGit = (quest) => {
+  return ['Cardan Experience Square', 'Mello: Trello Clone'].includes(quest?.title)
+}
+
+const openGitWarning = (url) => {
+  gitWarningUrl.value = url
+}
+
+const closeGitWarning = () => {
+  gitWarningUrl.value = ''
+}
+
 const runIntroSequence = () => {
   // Retro staggered boot sequence for the quest items
   // Using steps ease to make it feel like an old slow processor
@@ -169,6 +209,7 @@ const triggerCarouselFlicker = () => {
 watch(selected, async () => {
   tick.value = 0
   showLightbox.value = false
+  gitWarningUrl.value = ''
   manualOverride.value = false
   await nextTick()
   triggerGlitchTransition()
@@ -256,13 +297,17 @@ onUnmounted(() => {
 
 /* Documentation Links */
 .docs{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px}
-.docs a{
+.docs a,
+.docs .doc-link{
   color:var(--crt);text-decoration:none;font-size:1em;
   padding:8px 16px;border:2px solid var(--hud-line);
   background:rgba(0,0,0,0.3);letter-spacing:2px;
   transition:all 0.3s ease;text-transform:uppercase;font-weight:600;
+  font-family:inherit;
+  cursor:pointer;
 }
-.docs a:hover{
+.docs a:hover,
+.docs .doc-link:hover{
   border-color:var(--crt);
   background:rgba(51, 255, 102, 0.1);
   box-shadow:0 0 16px var(--crt-glow);
@@ -429,6 +474,94 @@ onUnmounted(() => {
 }
 .lb-prev { left: 12px; }
 .lb-next { right: 12px; }
+
+/* FONTYS GIT WARNING MODAL */
+.git-warning-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgba(0, 20, 10, 0.86);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.git-warning-panel {
+  position: relative;
+  width: min(560px, 100%);
+  background: #050a05;
+  border: 4px solid var(--hud-line);
+  padding: 32px;
+  box-shadow: 0 0 60px rgba(51, 255, 102, 0.28), inset 0 0 32px rgba(51, 255, 102, 0.06);
+}
+.git-warning-panel::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--status-warn), transparent 70%);
+}
+.git-warning-kicker {
+  margin: 0 0 8px;
+  color: var(--status-warn);
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.git-warning-panel h2 {
+  margin-bottom: 16px;
+  font-size: 1.8em;
+}
+.git-warning-panel p {
+  margin: 0 0 20px;
+  color: var(--crt-dim);
+  font-size: 1.1em;
+  line-height: 1.55;
+}
+.git-warning-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  color: var(--crt);
+  border: 2px solid var(--crt);
+  padding: 4px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.git-warning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+.git-warning-actions a,
+.git-warning-actions button {
+  color: var(--crt);
+  text-decoration: none;
+  font-size: 1em;
+  padding: 8px 16px;
+  border: 2px solid var(--hud-line);
+  background: rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+.git-warning-close:hover,
+.git-warning-actions a:hover,
+.git-warning-actions button:hover {
+  background: var(--crt);
+  color: black;
+  box-shadow: 0 0 16px var(--crt-glow);
+}
+.git-warning-cancel {
+  opacity: 0.82;
+}
 
 @media (min-width: 1024px) {
   .hero-image-wrapper { height: 380px; }
