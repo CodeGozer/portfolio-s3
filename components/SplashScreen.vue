@@ -109,10 +109,10 @@
 }
 
 .splash-logo {
-  width: clamp(200px, 35vw, 320px);
-  height: auto;
+  width: clamp(150px, 26vw, 250px);
+  max-height: 34vh;
   border: 3px solid var(--hud-line);
-  padding: 16px;
+  padding: 12px;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 32px var(--crt-glow);
   animation: hud-pulse 3s infinite;

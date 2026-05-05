@@ -195,6 +195,78 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+/* Projects/Quests Tab - Radar Target Styling */
+.quests-layout{display:flex;flex-direction:column;height:100%;padding:18px;position:relative;background:transparent;}
+.quests-layout .content-row{display:flex;flex:1;align-items:stretch;gap:0;padding:0;}
+
+/* Target List (Radar Contacts) */
+.quest-list{
+  width:340px;
+  background:linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+  border-right:3px solid var(--hud-line);
+  padding:24px 0;
+  display:flex;flex-direction:column;gap:3px;
+  overflow-y:auto;
+  box-shadow:inset -8px 0 16px rgba(0,0,0,0.6);
+}
+
+.quest-item{
+  padding:16px 24px;
+  font-size:1.15em;letter-spacing:3px;font-weight:600;
+  cursor:pointer;
+  border-left:4px solid transparent;
+  background:rgba(0,0,0,0.2);
+  transition:all 0.3s ease;
+  position:relative;
+  text-transform:uppercase;
+}
+.quest-item::before{
+  content:'▸';margin-right:12px;color:var(--crt-dim);
+  transition:color 0.3s ease;
+}
+.quest-item:hover{
+  background:rgba(51, 255, 102, 0.06);
+  border-left-color:var(--crt);
+  animation:hud-pulse 2s infinite;
+}
+.quest-item:hover::before{color:var(--crt)}
+.quest-item.active{
+  background:rgba(51, 255, 102, 0.12);
+  border-left:4px solid var(--crt);
+  color:var(--crt);
+  font-weight:700;
+  box-shadow:inset 0 0 20px var(--crt-glow);
+}
+.quest-item.active::before{color:var(--crt)}
+
+/* Target Details Panel */
+.quest-details{
+  flex:1;padding:32px 48px;overflow-y:auto;
+  background:linear-gradient(90deg, rgba(0,0,0,0.2), transparent 20%);
+}
+.quest-desc{margin-bottom:24px;font-size:1.1em;line-height:1.7;color:var(--crt)}
+.quest-section{margin-bottom:32px}
+.quest-section h3{
+  margin:0 0 12px 0;font-size:1.2em;letter-spacing:3px;
+  color:var(--crt);font-weight:700;text-transform:uppercase;
+  border-bottom:2px solid var(--hud-line);padding-bottom:6px;
+}
+.quest-section ul{margin:0 0 12px 0;padding-left:28px;line-height:1.8}
+.quest-section ul li{color:var(--crt)}
+
+/* Documentation Links */
+.docs{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px}
+.docs a{
+  color:var(--crt);text-decoration:none;font-size:1em;
+  padding:8px 16px;border:2px solid var(--hud-line);
+  background:rgba(0,0,0,0.3);letter-spacing:2px;
+  transition:all 0.3s ease;text-transform:uppercase;font-weight:600;
+}
+.docs a:hover{
+  border-color:var(--crt);
+  background:rgba(51, 255, 102, 0.1);
+  box-shadow:0 0 16px var(--crt-glow);
+}
 .quest-hero-carousel {
   width: 100%;
   margin: 16px 0 32px 0;
@@ -265,18 +337,6 @@ onUnmounted(() => {
 /* On hover: brighten image to show interactivity */
 .carousel-img-container:hover img {
   transform: scale(1.02);
-}
-
-/* Dense CRT / Scanline filter overlaid directly on image */
-.crs-filter {
-  position: absolute;
-  inset: 0;
-  background: 
-    repeating-linear-gradient(to bottom, transparent 0, transparent 2px, rgba(51,255,102,0.1) 3px, rgba(51,255,102,0.1) 4px),
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
-  background-size: 100% 4px, 100% 4px;
-  pointer-events: none;
-  mix-blend-mode: screen;
 }
 
 .quest-hero-carousel figcaption {

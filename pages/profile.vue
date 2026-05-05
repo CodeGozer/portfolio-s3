@@ -44,7 +44,7 @@
               <div class="system-logs">
                 <p>> BESCHIKBAARHEID: <span class="text-green">OPEN</span></p>
                 <p>> SIGNAL STRENGTH: <span class="text-green">STRONG</span></p>
-                <p>> LOCATION: <span class="text-dim">Robert Kochstraat 15, 5751 MB Deurne, NL</span></p>
+                <p>> LOCATION: <span class="text-dim">Deurne, NL</span></p>
                 <p>> STATUS: <span class="text-green">Open for work</span></p>
               </div>
             </section>
@@ -118,4 +118,33 @@ const contactMethods = [
 const selectedContact = ref(contactMethods[0])
 </script>
 
+<style scoped>
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: 100%; padding: 16px; overflow: hidden; }
+.pane { display: flex; flex-direction: column; }
+.pane-header { font-size: 1.2rem; font-weight: 700; border-bottom: 2px solid var(--crt); margin-bottom: 12px; letter-spacing: 2px; }
+.contact-list-interactive { list-style: none; padding: 0; margin: 0; flex: 1; overflow-y: auto; }
+.contact-list-interactive li { padding: 12px; margin-bottom: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; background: rgba(0,0,0,0.3); }
+.contact-list-interactive li:hover, .contact-list-interactive li.active { background: rgba(51, 255, 102, 0.15); border-color: var(--crt); box-shadow: 0 0 12px var(--crt-glow); }
+.contact-row { display: flex; justify-content: space-between; align-items: center; }
+.contact-name { font-weight: 700; letter-spacing: 1px; }
+.square-icon { margin-right: 8px; font-size: 0.8em; }
+.contact-val { color: var(--crt-dim); font-size: 0.9em; }
+.system-logs p { margin: 4px 0; font-family: 'Courier New', monospace; letter-spacing: 1px; }
+.text-green { color: var(--crt); font-weight: bold; }
+.text-dim { color: var(--crt-dim); }
+.right-header { border-bottom: 2px solid var(--hud-line); padding-bottom: 8px; margin-bottom: 16px; font-weight: 700; letter-spacing: 2px; }
+.map-display { position: relative; height: 220px; background: rgba(0,20,10,0.9); border: 2px solid var(--hud-line); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.map-grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(rgba(51,255,102,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(51,255,102,0.15) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
+.map-img { height: 90%; object-fit: contain; filter: drop-shadow(0 0 8px rgba(51, 255, 102, 0.4)); border-radius: 4px; }
+.detail-box { background: rgba(51, 255, 102, 0.05); padding: 16px; border: 2px solid var(--hud-line); flex: 1; display:flex; flex-direction: column; }
+.detail-title { margin: 0 0 8px 0; font-size: 1.4rem; border-bottom: 1px solid var(--crt-dim); padding-bottom: 4px; word-break: break-all; }
+.detail-desc { font-size: 1rem; line-height: 1.4; margin-bottom: auto; }
+.action-row { margin-top: 24px; text-align: right; }
+.action-btn { display: inline-block; padding: 12px 24px; background: rgba(0,0,0,0.5); border: 2px solid var(--crt); color: var(--crt); text-decoration: none; font-weight: 700; letter-spacing: 2px; transition: all 0.2s; }
+.action-btn:hover { background: var(--crt); color: #000; box-shadow: 0 0 16px var(--crt-glow); }
 
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; overflow-y: auto; }
+  .map-display { display: none; }
+}
+</style>

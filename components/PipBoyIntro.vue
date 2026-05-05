@@ -21,7 +21,7 @@
         <!-- Glitch Effect Wrapper -->
         <div v-if="introStage === 'glitch' || introStage === 'mascot'" class="relative flex flex-col items-center" :class="{ 'glitch-effect': introStage === 'glitch' }">
              <!-- Mascot Image -->
-            <img v-show="introStage === 'mascot'" src="/vault-boy-intro.jpg" alt="Pip-Boy" class="w-64 h-64 md:w-96 md:h-96 object-contain image-pixelated mb-8 animate-pop-in mix-blend-screen" />
+            <img v-show="introStage === 'mascot'" src="/vault-boy-intro.jpg" alt="Pip-Boy" class="intro-mascot image-pixelated mb-8 animate-pop-in mix-blend-screen" />
             
             <!-- Text UI -->
             <div v-if="introStage === 'mascot'" class="text-center">
@@ -60,7 +60,6 @@ const fullDiagnostics = [
 ]
 
 onMounted(() => {
-    console.log('PipBoyIntro mounted')
     runBootSequence()
 })
 
@@ -101,7 +100,6 @@ const runBootSequence = async () => {
 const startExitSequence = () => {
   isClosing.value = true
   sleep(700).then(() => {
-    console.log('[PipBoyIntro] Emitting finish')
     visible.value = false
     emit('finish')
   })
@@ -109,12 +107,10 @@ const startExitSequence = () => {
 
 const sleep = (ms: number) => {
     const start = Date.now()
-    console.log(`[PipBoyIntro] Sleep start ${ms}ms at`, start)
     return new Promise(resolve => {
         const check = () => {
             const now = Date.now()
             if (now - start >= ms) {
-                console.log(`[PipBoyIntro] Sleep done ${ms}ms at`, now, 'diff:', now - start)
                 resolve(true)
             } else {
                 requestAnimationFrame(check)
@@ -129,6 +125,12 @@ const sleep = (ms: number) => {
 /* Image Rendering */
 .image-pixelated {
     image-rendering: pixelated;
+}
+
+.intro-mascot {
+    width: clamp(180px, 28vw, 300px);
+    max-height: 42vh;
+    object-fit: contain;
 }
 
 /* Animations */

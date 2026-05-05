@@ -12,23 +12,19 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { computed, ref, watch } from 'vue'
 
-// Gebruik een cookie om te onthouden of de bezoeker de animatie al heeft gezien (verloopt na 7 dagen)
-const hasSeenIntro = useCookie('hasSeenIntro', { maxAge: 60 * 60 * 24 * 7 })
+const route = useRoute()
 
-// Toon de intro alleen als de cookie nog niet bestaat
-const showIntro = ref(!hasSeenIntro.value)
+// Gebruik een versie-cookie zodat bezoekers de herstelde intro opnieuw een keer zien.
+const hasSeenIntro = useCookie('hasSeenIntroV2', { maxAge: 60 * 60 * 24 * 7 })
+const forceIntro = computed(() => route.query.intro === '1')
+const showIntro = ref(forceIntro.value || !hasSeenIntro.value)
 
 watch(showIntro, (val) => {
-  console.log('[App] showIntro changed to:', val)
-  if (!val) {
+  if (!val && !forceIntro.value) {
     hasSeenIntro.value = true
   }
-})
-
-onMounted(() => {
-  console.log('[App] App mounted, showIntro:', showIntro.value)
 })
 </script>
 
