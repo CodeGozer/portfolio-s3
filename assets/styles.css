@@ -24,10 +24,10 @@
 }
 
 *{box-sizing:border-box;font-family: 'VT323', 'Courier New', Consolas, monospace;color:var(--crt)}
-html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
+html,body,#__nuxt{height:100%;height:100dvh;margin:0;background:var(--bg)}
 
 /* Fullscreen Cockpit Terminal Shell */
-.pipboy-shell{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(ellipse at center, rgba(0,20,10,0.4), rgba(0,0,0,0.95) 70%)}
+.pipboy-shell{position:fixed;top:0;left:0;width:100%;height:100%;height:100dvh;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(ellipse at center, rgba(0,20,10,0.4), rgba(0,0,0,0.95) 70%)}
 
 /* Fighter Jet Bezel with Rivets and Hazard Stripes */
 .pipboy-bezel{
@@ -94,9 +94,32 @@ html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
   .crt-screen{padding:16px}
 }
 @media (max-width: 640px){
-  .pipboy-shell{padding:8px}
-  .pipboy-bezel{border-width:4px;padding:12px}
-  .crt-screen{padding:12px}
+  .pipboy-shell{padding:4px}
+  .pipboy-bezel{border-width:2px;padding:8px;border-radius:2px}
+  .pipboy-bezel::after{content:'SYS_FEED';font-size:0.5em;letter-spacing:2px;right:8px;bottom:4px}
+  .crt-screen{padding:8px;border-width:2px}
+}
+
+@media (max-width: 700px){
+  .site-header{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+    padding:10px 8px;
+  }
+
+  .site-nav{
+    width:100%;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+
+  .site-nav .nav-link{
+    flex:1 1 calc(50% - 6px);
+    text-align:center;
+    padding:7px 6px;
+    letter-spacing:1px;
+  }
 }
 
 /* Scanline overlay */
@@ -276,7 +299,7 @@ html,body,#__nuxt{height:100%;margin:0;background:var(--bg)}
 .pro-crt .scanlines { opacity: 0.22; }
 
 /* Ensure content sits above CRT overlays */
-.screen-content { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; }
+.screen-content { position: relative; z-index: 5; min-height: 100%; display: flex; flex-direction: column; }
 
 /* Responsive: on mobile, prefer top header/footer; tone down side cockpit nav */
 @media (max-width: 900px){

@@ -51,7 +51,7 @@
                 <div class="perk-badge" title="Leergierige Student Front-end">★ EAGER LEARNER</div>
                 <div class="perk-badge" title="Figma Ontwerper">★ PIXEL PUSHER</div>
                 <div class="perk-badge" title="Geduldig bij code bugs">★ ZEN CODER</div>
-                <div class="perk-badge" title="[PLACEHOLDER PERK]">★ TEAM PLAYER</div>
+                <div class="perk-badge" title="Samenwerken in een team">★ TEAM PLAYER</div>
               </div>
             </section>
 
@@ -59,25 +59,16 @@
             <section class="pane right-pane">
                <!-- S.P.E.C.I.A.L. Header for Context -->
                <div class="special-stats">
-                  <div class="stat-box">
-                    <span class="stat-letter">S</span>
-                    <span class="stat-val">6</span>
-                    <span class="stat-label">STAMINA</span>
-                  </div>
-                  <div class="stat-box active">
-                    <span class="stat-letter">P</span>
-                    <span class="stat-val">8</span>
-                    <span class="stat-label">PIXELS</span>
-                  </div>
-                  <div class="stat-box">
-                    <span class="stat-letter">I</span>
-                    <span class="stat-val">7</span>
-                    <span class="stat-label">INTEL</span>
-                  </div>
-                  <div class="stat-box">
-                    <span class="stat-letter">C</span>
-                    <span class="stat-val">8</span>
-                    <span class="stat-label">CREATIEF</span>
+                  <div
+                    v-for="stat in specialStats"
+                    :key="stat.key"
+                    class="stat-box"
+                    :class="{ active: stat.key === activeSpecial }"
+                    :title="stat.description"
+                  >
+                    <span class="stat-letter">{{ stat.key }}</span>
+                    <span class="stat-val">{{ stat.value }}</span>
+                    <span class="stat-label">{{ stat.label }}</span>
                   </div>
                </div>
 
@@ -204,6 +195,21 @@ const softSkills = [
 
 const displayedSkills = computed(() => activeTab.value === 'STATS' ? devSkills : softSkills)
 const selectedSkill = ref(devSkills[0])
+const specialStats = [
+  { key: 'S', value: 7, label: 'STRUCTUUR', description: 'Semantische HTML, nette opbouw en overzichtelijke interfaces.' },
+  { key: 'P', value: 8, label: 'PIXELS', description: 'UI, Figma, detailgevoel en visuele afwerking.' },
+  { key: 'E', value: 8, label: 'EMPATHIE', description: 'Presenteren, samenwerken en rekening houden met gebruikers.' },
+  { key: 'C', value: 8, label: 'CODE', description: 'Front-end frameworks, JavaScript en component-based bouwen.' },
+  { key: 'I', value: 7, label: 'INZICHT', description: 'Snel abstracte problemen overzien en oplossingen bedenken.' },
+  { key: 'A', value: 8, label: 'ADAPTIEF', description: 'Flexibel in het snel aanleren van nieuwe technieken.' },
+  { key: 'L', value: 7, label: 'LOGICA', description: 'Analytisch denkvermogen voor debuggen en optimaliseren.' }
+]
+const activeSpecial = computed(() => {
+  if (['FIGMA (UI/UX)', 'TAILWIND CSS'].includes(selectedSkill.value.name)) return 'P'
+  if (['PUBLIC SPEAKING', 'POLYGLOT (TALEN)'].includes(selectedSkill.value.name)) return 'E'
+  if (selectedSkill.value.name === 'BLIND TYPEN') return 'S'
+  return 'C'
+})
 
 watch(activeTab, (newTab) => {
   selectedSkill.value = newTab === 'STATS' ? devSkills[0] : softSkills[0]
@@ -329,11 +335,14 @@ const selectSkill = (skill) => {
   flex-direction: column;
   align-items: center;
   opacity: 0.6;
+  min-width: 64px;
+  padding: 2px 4px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.stat-box.active { opacity: 1; }
+.stat-box.active { opacity: 1; transform: translateY(-1px); }
 .stat-letter { font-size: 1.5rem; font-weight: 700; }
-.stat-val { font-size: 1.2rem; }
-.stat-label { font-size: 0.6rem; letter-spacing: 1px; }
+.stat-val { font-size: 1.2rem; line-height: 1; }
+.stat-label { font-size: 0.62rem; letter-spacing: 1px; text-align: center; }
 
 /* Avatar */
 .avatar-display {
@@ -398,6 +407,21 @@ const selectSkill = (skill) => {
   .skills-layout {
     grid-template-columns: 1fr;
     overflow-y: auto;
+  }
+
+  .special-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .stat-box {
+    min-width: 0;
+  }
+
+  .stat-label {
+    font-size: 0.55rem;
+    letter-spacing: 0;
   }
 }
 </style>

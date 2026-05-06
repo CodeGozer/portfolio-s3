@@ -27,7 +27,7 @@
               <ul class="contact-list-interactive">
                 <li v-for="contact in contactMethods" :key="contact.type" 
                     :class="{ active: selectedContact.type === contact.type }"
-                    @click="selectedContact = contact"
+                    @click="handleContactClick(contact)"
                     @mouseenter="selectedContact = contact">
                   <div class="contact-row">
                     <span class="contact-name">
@@ -110,16 +110,21 @@ const contactMethods = [
     status: 'CONNECTED',
     description: 'Professioneel netwerk uplink. Klik door naar LinkedIn om te connecten of om mijn digitale werkverleden te scannen.',
     actionText: 'Bekijk LinkedIn profiel',
-    link: 'https://linkedin.com/', // Vul hier later je echte URL in
+    link: 'https://www.linkedin.com/in/nico-kornuijt-681403220/',
     image: '/IMG_1439.png'
   }
 ]
+
+const handleContactClick = (contact) => {
+  selectedContact.value = contact
+  window.open(contact.link, contact.type === 'EMAIL' ? '_self' : '_blank')
+}
 
 const selectedContact = ref(contactMethods[0])
 </script>
 
 <style scoped>
-.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: 100%; padding: 16px; overflow: hidden; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1; min-height: 0; padding: 16px; overflow: hidden; }
 .pane { display: flex; flex-direction: column; }
 .pane-header { font-size: 1.2rem; font-weight: 700; border-bottom: 2px solid var(--crt); margin-bottom: 12px; letter-spacing: 2px; }
 .contact-list-interactive { list-style: none; padding: 0; margin: 0; flex: 1; overflow-y: auto; }
@@ -144,7 +149,21 @@ const selectedContact = ref(contactMethods[0])
 .action-btn:hover { background: var(--crt); color: #000; box-shadow: 0 0 16px var(--crt-glow); }
 
 @media (max-width: 768px) {
-  .contact-layout { grid-template-columns: 1fr; overflow-y: auto; }
+  :deep(.pipboy-shell) { align-items: stretch; }
+  :deep(.crt-screen.pro-crt) { overflow-y: auto; }
+  :deep(.screen-content) { min-height: max-content; }
+  .contact-layout { grid-template-columns: 1fr; gap: 14px; flex: initial; min-height: auto; padding: 8px 2px 80px; overflow: visible; align-content: start; }
+  .pane { min-height: auto; flex: initial; }
+  .pane-header { font-size: 1rem; letter-spacing: 1px; }
+  .contact-list-interactive { flex: initial; overflow: visible; }
+  .contact-list-interactive li { padding: 10px; }
+  .contact-row { align-items: flex-start; gap: 8px; }
+  .contact-val { flex-shrink: 0; }
   .map-display { display: none; }
+  .right-pane { padding-bottom: 20px; }
+  .detail-box { flex: initial; min-height: 220px; }
+  .detail-title { font-size: 1.15rem; word-break: break-word; }
+  .action-row { text-align: left; }
+  .action-btn { width: 100%; text-align: center; padding: 10px 12px; letter-spacing: 1px; }
 }
 </style>

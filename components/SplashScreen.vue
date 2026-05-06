@@ -10,13 +10,13 @@
         <div class="rivet"></div>
         <div class="rivet"></div>
         
-        <div class="crt-screen animated-crt">
+        <div class="crt-screen animated-crt splash-crt pro-crt">
           <div class="crt-glare"></div>
           <div class="crt-noise"></div>
           <div class="scanlines"></div>
           
           <!-- Avionics Callsign Header -->
-          <div class="hud-header">
+          <div class="hud-header hide-on-mobile">
             <div class="hud-brackets">
               <div class="bracket-left"></div>
               <div class="hud-callsign">
@@ -55,6 +55,13 @@
           <!-- Center Content -->
           <div class="splash-content">
             <img src="/vault-boy-clean.jpg" alt="Pip-Boy" class="splash-logo image-pixelated mix-blend-screen" />
+            
+            <div class="hud-callsign hide-on-desktop mobile-name-plate">
+              <div class="callsign-label">OPERATOR</div>
+              <div class="callsign-name">NICO KORNUIJT</div>
+              <div class="callsign-tag">CALLSIGN: CODEGOZER</div>
+            </div>
+
             <h1 class="splash-title">PORTFOLIO TERMINAL</h1>
             <p class="splash-subtitle">INITIALIZING SYSTEMS<span class="dots"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></span></p>
             <NuxtLink to="/quests" class="enter-button">
@@ -95,9 +102,14 @@
   background: var(--bg);
 }
 
+.splash-crt {
+  display: flex;
+  flex-direction: column;
+}
+
 .splash-content {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,6 +118,11 @@
   z-index: 5;
   gap: 20px;
   padding: 24px;
+}
+
+.status-bar {
+  position: relative !important;
+  margin-top: auto;
 }
 
 .splash-logo {
@@ -202,9 +219,104 @@
   gap: 20px;
 }
 
+.hide-on-desktop {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .splash-nav {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .hide-on-desktop {
+    display: block;
+  }
+  
+  .mobile-name-plate {
+    margin-bottom: 8px;
+    padding: 0;
+  }
+
+  .crt-screen {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hud-header {
+    padding: 8px 4px;
+  }
+
+  .hud-brackets {
+    gap: 8px;
+  }
+
+  .bracket-left,
+  .bracket-right {
+    width: 32px;
+  }
+
+  .hud-callsign {
+    padding: 0 8px;
+  }
+
+  .callsign-label,
+  .callsign-tag {
+    letter-spacing: 2px;
+  }
+
+  .callsign-name {
+    font-size: 1.15em;
+    letter-spacing: 3px;
+  }
+
+  .splash-content {
+    position: relative;
+    inset: auto;
+    flex: 1;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 6px;
+  }
+
+  .splash-logo {
+    width: clamp(120px, 42vw, 170px);
+    max-height: 26vh;
+    padding: 8px;
+  }
+
+  .splash-title {
+    font-size: clamp(1.45rem, 9vw, 2rem);
+    letter-spacing: 3px;
+  }
+
+  .splash-subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .enter-button {
+    margin-top: 8px;
+    padding: 10px 20px;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+  }
+
+  .status-bar {
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    justify-content: center;
+    padding: 8px 4px 0;
+  }
+
+  .status-item {
+    font-size: 0.78em;
+    letter-spacing: 1px;
   }
 }
 </style>
